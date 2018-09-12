@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "boris.fullname" . }}
+  labels:
+    app: {{ include "boris.name" . }}
+    chart: {{ include "boris.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ required ".Values.service.port is required!" .Values.service.port }}
+      targetPort: {{ required ".Values.borisPort is required!" .Values.borisPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ include "boris.name" . }}
+    release: {{ .Release.Name }}

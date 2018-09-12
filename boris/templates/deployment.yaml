@@ -1,0 +1,73 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "boris.fullname" . }}
+  labels:
+    app: {{ include "boris.name" . }}
+    chart: {{ include "boris.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "boris.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "boris.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      initContainers:
+        # Wait for migrations to be ready before starting the containers.
+        - name: {{ printf "%s-wait-for-migration" .Chart.Name }}
+          image: "groundnuty/k8s-wait-for:latest"
+          imagePullPolicy: Always
+          args: ["job", {{ include "boris.migrationjobname" . }}]
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ template "boris.configmapname" . }}
+          env:
+            - name: BORIS_DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "mysql.fullname" . }}
+                  key: mysql-password
+            - name: BORIS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "boris.fullname" . }}
+                  key: boris-secret-key
+          ports:
+            - name: http
+              containerPort: {{ required ".Values.borisPort is required!" .Values.borisPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /
+              port: http
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

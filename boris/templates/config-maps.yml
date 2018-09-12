@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "boris.configmapname" . }}
+data:
+  BORIS_INSTALLATION: {{ template "boris.name" . }}
+  BORIS_DEBUG: {{ if .Values.borisDebug -}}"1"{{- else -}}"0"{{- end }}
+  BORIS_ADMIN_EMAIL: {{ .Values.borisAdminEmail }}
+  BORIS_ALLOWED_HOSTS: {{ .Values.borisAllowedHosts | quote }}
+  BORIS_DB_HOST: {{ template "mysql.fullname" . }}
+  BORIS_DB_PORT: "3306"
+  BORIS_DB_NAME: {{ required ".Values.mysql.mysqlDatabase is required!" .Values.mysql.mysqlDatabase | quote }}
+  BORIS_DB_USER: {{ required ".Values.mysql.mysqlUser is required!" .Values.mysql.mysqlUser | quote }}
+  BORIS_WORKERS: {{ required ".Values.borisWorkers is required!" .Values.borisWorkers | quote }}
