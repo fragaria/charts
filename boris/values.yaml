@@ -53,6 +53,10 @@ borisAdminEmail: "admin@fragaria.cz"
 borisWorkers: 1
 borisAllowedHosts: "*"
 borisSecretKey: ""
+borisCreateSuperUser: false
+borisSuperUserUsername: ""
+borisSuperUserEmail: ""
+borisSuperUserPassword: ""
 
 mysql:
   ## Create a database user

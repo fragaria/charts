@@ -1,7 +1,13 @@
+{{- define "boris.createsuperuserCommand" -}}
+python -c "import django; django.setup(); \
+from django.contrib.auth.management.commands.createsuperuser import get_user_model; \
+get_user_model().objects.create_superuser(username='{{ required ".Values.borisSuperUserUsername is required!" .Values.borisSuperUserUsername }}', email='{{ required ".Values.borisSuperUserEmail is required!" .Values.borisSuperUserEmail }}', password='{{ required ".Values.borisSuperUserPassword is required!" .Values.borisSuperUserPassword }}')"
+{{- end -}}
+{{- if and .Release.IsInstall .Values.borisCreateSuperUser -}}
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: {{ include "boris.migrationjobname" . }}
+  name: {{ include "boris.createsuperuserjobname" . }}
   labels:
     # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
     # It is useful for admins who want to see what releases a particular tool
@@ -16,25 +22,19 @@ metadata:
     # This is what defines this resource as a hook. Without this line, the
     # job is considered part of the release.
     "helm.sh/hook": post-install,post-upgrade
-    "helm.sh/hook-weight": "-10"
+    "helm.sh/hook-weight": "0"
     "helm.sh/hook-delete-policy": before-hook-creation
 spec:
   template:
     spec:
       imagePullSecrets:
         - name: {{ .Values.image.pullSecretName }}
-      initContainers:
-        # Wait for database to be ready before attempting the migration.
-        - name: {{ printf "%s-wait-for-database" .Chart.Name }}
-          image: "groundnuty/k8s-wait-for:latest"
-          imagePullPolicy: Always
-          args: ["pod", '-lapp={{ include "mysql.fullname" . }}']
       containers:
         - name: post-install-job
           image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           # Sleep for few seconds so that MySQL intializes
-          command: ['sh', '-c', 'python boris/manage.py migrate']
+          command: ['sh', '-c', {{ include "boris.createsuperuserCommand" . | quote }}]
           envFrom:
             - configMapRef:
                 name: {{ template "boris.configmapname" . }}
@@ -51,3 +51,4 @@ spec:
                   key: boris-secret-key
       restartPolicy: Never
   backoffLimit: 5
+{{- end -}}

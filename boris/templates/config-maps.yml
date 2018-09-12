@@ -3,6 +3,7 @@ kind: ConfigMap
 metadata:
   name: {{ template "boris.configmapname" . }}
 data:
+  DJANGO_SETTINGS_MODULE: "boris.settings"
   BORIS_INSTALLATION: {{ template "boris.name" . }}
   BORIS_DEBUG: {{ if .Values.borisDebug -}}"1"{{- else -}}"0"{{- end }}
   BORIS_ADMIN_EMAIL: {{ .Values.borisAdminEmail }}

@@ -21,8 +21,11 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 
 {{- define "boris.migrationjobname" -}}
-{{- $name := default .Chart.Name .Values.nameOverride -}}
-{{- printf "migrationjob-%s-%s" .Release.Name $name | trunc 63 | trimSuffix "-" -}}
+{{ template "boris.fullname" . }}-migration-job
+{{- end -}}
+
+{{- define "boris.createsuperuserjobname" -}}
+{{ template "boris.fullname" . }}-createsuperuser-job
 {{- end -}}
 
 {{- define "boris.configmapname" -}}
