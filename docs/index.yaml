@@ -1,0 +1,13 @@
+apiVersion: v1
+entries:
+  boris:
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-09-12T15:41:30.747441721+02:00
+    description: A Helm chart for Kubernetes to deploy BorIS installation
+    digest: a02eb9fc3f403d0e881c180ee42fd4c7476d27e7b4c72480f62c0a81efddbbeb
+    name: boris
+    urls:
+    - https://fragaria.github.io/charts/boris-0.1.0.tgz
+    version: 0.1.0
+generated: 2018-09-12T15:41:30.745823334+02:00
