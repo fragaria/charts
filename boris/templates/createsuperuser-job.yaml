@@ -3,7 +3,7 @@ python -c "import django; django.setup(); \
 from django.contrib.auth.management.commands.createsuperuser import get_user_model; \
 get_user_model().objects.create_superuser(username='{{ required ".Values.borisSuperUserUsername is required!" .Values.borisSuperUserUsername }}', email='{{ required ".Values.borisSuperUserEmail is required!" .Values.borisSuperUserEmail }}', password='{{ required ".Values.borisSuperUserPassword is required!" .Values.borisSuperUserPassword }}')"
 {{- end -}}
-{{- if and .Release.IsInstall .Values.borisCreateSuperUser -}}
+{{- if .Values.borisCreateSuperUser -}}
 apiVersion: batch/v1
 kind: Job
 metadata:
@@ -23,7 +23,7 @@ metadata:
   annotations:
     # This is what defines this resource as a hook. Without this line, the
     # job is considered part of the release.
-    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook": post-install
     "helm.sh/hook-weight": "0"
     "helm.sh/hook-delete-policy": before-hook-creation
 spec:
