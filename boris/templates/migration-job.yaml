@@ -30,7 +30,7 @@ spec:
         - name: {{ printf "%s-wait-for-database" .Chart.Name }}
           image: "groundnuty/k8s-wait-for:v1.1"
           imagePullPolicy: Always
-          args: ["pod", '-lapp={{ include "mysql.fullname" . }}']
+          command: ["sh", '-c', 'wait_for.sh pod -lapp={{ include "mysql.fullname" . }} && sleep 10']
       containers:
         - name: post-install-job
           image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
