@@ -24,9 +24,9 @@ spec:
       initContainers:
         # Wait for migrations to be ready before starting the containers.
         - name: {{ printf "%s-wait-for-migration" .Chart.Name }}
-          image: "groundnuty/k8s-wait-for:latest"
+          image: "groundnuty/k8s-wait-for:v1.1"
           imagePullPolicy: Always
-          args: ['job', '-lapp={{ include "boris.name" . }}', '-ljobname=migration']
+          args: ['job', '{{ include "boris.migrationjobname" . }}']
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"

@@ -28,7 +28,7 @@ spec:
       initContainers:
         # Wait for database to be ready before attempting the migration.
         - name: {{ printf "%s-wait-for-database" .Chart.Name }}
-          image: "groundnuty/k8s-wait-for:latest"
+          image: "groundnuty/k8s-wait-for:v1.1"
           imagePullPolicy: Always
           args: ["pod", '-lapp={{ include "mysql.fullname" . }}']
       containers:
