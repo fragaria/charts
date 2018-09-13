@@ -3,7 +3,17 @@ entries:
   boris:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-09-13T14:27:05.511146494+02:00
+    created: 2018-09-13T15:20:02.635986701+02:00
+    description: A Helm chart for Kubernetes to deploy BorIS installation
+    digest: 67f8beb255a623ca7f6f36554ecbd3fe204cd6da731b0bcbe37cd65cdb91f3c4
+    icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
+    name: boris
+    urls:
+    - https://fragaria.github.io/charts/boris-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-09-13T15:20:02.634994174+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: ef1c091df8dc84fcf4fcec6d9501532fc884f39ee99c2c7a182a7059962c20e6
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -13,7 +23,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-09-13T14:27:05.510122944+02:00
+    created: 2018-09-13T15:20:02.633424964+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 7085c2053c31c9c871c3a535394aa1b8e33ba0ab4f05de2ed1db33fc0f908346
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -23,7 +33,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-09-13T14:27:05.508139799+02:00
+    created: 2018-09-13T15:20:02.631363316+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 4670ebe4600f0c580e111a1ce6141f2940e2a38db94bce1a0361e447258052c6
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -33,11 +43,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-09-13T14:27:05.506769645+02:00
+    created: 2018-09-13T15:20:02.629765741+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a02eb9fc3f403d0e881c180ee42fd4c7476d27e7b4c72480f62c0a81efddbbeb
     name: boris
     urls:
     - https://fragaria.github.io/charts/boris-0.1.0.tgz
     version: 0.1.0
-generated: 2018-09-13T14:27:05.504852498+02:00
+generated: 2018-09-13T15:20:02.627842036+02:00
