@@ -3,6 +3,8 @@ kind: Job
 metadata:
   name: {{ include "boris.migrationjobname" . }}
   labels:
+    app: {{ include "boris.name" . }}
+    jobname: migration
     # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
     # It is useful for admins who want to see what releases a particular tool
     # is responsible for.

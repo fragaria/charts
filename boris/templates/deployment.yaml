@@ -26,7 +26,7 @@ spec:
         - name: {{ printf "%s-wait-for-migration" .Chart.Name }}
           image: "groundnuty/k8s-wait-for:latest"
           imagePullPolicy: Always
-          args: ["job", {{ include "boris.migrationjobname" . }}]
+          args: ['job', '-lapp={{ include "boris.name" . }}', '-ljobname=migration']
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
