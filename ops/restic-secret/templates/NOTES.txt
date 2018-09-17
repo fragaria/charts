@@ -1,0 +1,1 @@
+Restic repository secret with name {{ include "restic-secret.fullname" }} created.

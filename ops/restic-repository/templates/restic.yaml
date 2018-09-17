@@ -1,0 +1,26 @@
+{{- $defaultRetentionPolicyName := .Values.defaultRetentionPolicyName -}}
+apiVersion: stash.appscode.com/v1alpha1
+kind: Restic
+metadata:
+  name: {{ include "restic-backup.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+{{ toYaml .Values.matchLabels | indent 6 }}
+  fileGroups:
+  {{- range .Values.fileGroups }}
+  - path: {{ .path }}
+    retentionPolicyName: {{ default $defaultRetentionPolicyName .retentionPolicyName }}
+  {{- end }}
+  backend:
+{{ toYaml .Values.backend | indent 4 }}
+    storageSecretName: {{ required ".Values.repositorySecretName is required!" .Values.repositorySecretName }}
+  schedule: {{ .Values.schedule | quote }}
+  volumeMounts:
+  {{- range .Values.fileGroups }}
+  - mountPath: {{ .path }}
+    name: {{ .mountName }}
+  {{- end }}
+  retentionPolicies:
+{{ toYaml .Values.retentionPolicies | indent 4 }}

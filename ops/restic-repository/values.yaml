@@ -1,0 +1,25 @@
+# Default values for restic-backup.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+repositorySecretName: ""
+
+backend:
+  local:
+    mountPath: /repository
+    hostPath:
+      path: /data/stash/restic-repository
+
+retentionPolicies:
+  - name: 'keep-last-5'
+    keepLast: 5
+    prune: true
+
+defaultRetentionPolicyName: 'keep-last-5'
+
+fileGroups: []
+# - path: /source/data
+#   rentetionPolicyName: 'keep-last-5'
+#   mountName: 'source-data'
+
+schedule: '@daily'
