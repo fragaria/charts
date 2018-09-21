@@ -24,6 +24,10 @@ If release name contains chart name it will be used as a full name.
 {{- end -}}
 {{- end -}}
 
+{{- define "adv-web.configmapname" -}}
+{{ template "adv-web.fullname" . }}-env
+{{- end -}}
+
 {{/*
 Create chart name and version as used by the chart label.
 */}}

@@ -15,7 +15,7 @@ fullnameOverride: ""
 
 service:
   type: ClusterIP
-  port: 80
+  port: 8000
 
 ingress:
   enabled: false
@@ -48,16 +48,19 @@ tolerations: []
 
 affinity: {}
 
-port: 8000
 workers: 1
 debugMode: false
-settingsModule: "advweb"
+settingsModule: "adv.sites.advweb"
 defaultFromEmail: ""
 secretKey: ""
 signSalt: ""
 managers:
-  - name: admin
-    email: admin@fragaria.cz
+  - ['admin', 'admin@fragaria.cz']
+
+backupsPath: "/backups"
+
+sentry:
+  dsn: ""
 
 db:
   host: ""
@@ -78,6 +81,7 @@ elasticsearch:
   port: ""
 
 aws:
+  enabled: false
   accessKeyId: ""
   secretAccessKey: ""
   bucketName: adventura-cz
