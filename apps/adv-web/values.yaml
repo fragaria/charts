@@ -2,11 +2,9 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-replicaCount: 1
-
 image:
-  repository: registry.rancher.f-app.it/adv-web
-  tag: 0.1.0
+  repository: registry.rancher.f-app.it/adv-web-adv
+  tag: 0.1.7
   pullPolicy: IfNotPresent
   pullSecretName: regcred
 
@@ -19,28 +17,25 @@ service:
 
 ingress:
   enabled: false
-  annotations: {}
+  annotations:
     kubernetes.io/ingress.class: nginx
     kubernetes.io/tls-acme: "true"
-  path: /
   hosts: []
-    # - chart-example.local
-  tls: []
-  #  - secretName: chart-example-tls
-  #    hosts:
-  #      - chart-example.local
+    # - name: default
+    #   host: test-adventura.f-app.it
+  createTls: true
 
-resources: {}
+resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  # limits:
-  #  cpu: 100m
-  #  memory: 128Mi
-  # requests:
-  #  cpu: 100m
-  #  memory: 128Mi
+  limits:
+   cpu: 100m
+   memory: 256Mi
+  requests:
+   cpu: 100m
+   memory: 128Mi
 
 nodeSelector: {}
 
@@ -48,61 +43,22 @@ tolerations: []
 
 affinity: {}
 
-workers: 1
+mainWorkers: 1
+mainReplicaCount: 1
+uploadWorkers: 1
+uploadReplicaCount: 1
+
 debugMode: false
 settingsModule: "adv.sites.advweb"
-defaultFromEmail: ""
-secretKey: ""
-signSalt: ""
 managers:
   - ['admin', 'admin@fragaria.cz']
 
-backupsPath: "/backups"
-
-sentry:
-  dsn: ""
-
-db:
-  host: ""
-  user: ""
-  name: ""
-  password: ""
-
 redis:
-  host: ""
   databases:
     constance: 1
     celeryResult: 2
     celeryBroker: 3
     cache: 15
 
-elasticsearch:
-  host: ""
-  port: ""
-
-aws:
-  enabled: false
-  accessKeyId: ""
-  secretAccessKey: ""
-  bucketName: adventura-cz
-  s3Host: s3-eu-west-1.amazonaws.com
-  s3Proto: "https:"
-
-disqus:
-  apiKey: ""
-  apiSecret: ""
-  websiteShortname: "wwwchinatourscz"
-
-postageapp:
-  apiKey: ""
-
-constance:
-  backend: "constance.backends.redisd.RedisBackend"
-
-clm:
-  adv:
-    host: ""
-    secret: ""
-  cht:
-    host: ""
-    secret: ""
+sentry:
+  dsn: ""

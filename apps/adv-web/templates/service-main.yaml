@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "adv-web.fullname" . }}-main
+  labels:
+    app: {{ include "adv-web.name" . }}-main
+    chart: {{ include "adv-web.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ include "adv-web.name" . }}-main
+    release: {{ .Release.Name }}
