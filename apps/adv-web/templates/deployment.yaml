@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ include "adv-web.fullname" . }}-main
+  name: {{ include "adv-web.fullname" . }}
   labels:
-    app: {{ include "adv-web.name" . }}-main
+    app: {{ include "adv-web.name" . }}
     chart: {{ include "adv-web.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.mainReplicaCount }}
+  replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "adv-web.name" . }}-main
+      app: {{ include "adv-web.name" . }}
       chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
       release: {{ .Release.Name }}
       heritage: "{{ .Release.Service }}"
   template:
     metadata:
       labels:
-        app: {{ include "adv-web.name" . }}-main
+        app: {{ include "adv-web.name" . }}
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: {{ .Release.Name }}
         heritage: "{{ .Release.Service }}"
@@ -36,11 +36,13 @@ spec:
                 name: {{ required ".Values.secretName is required!" .Values.secretName | quote }}
           env:
             - name: ADV_WORKERS
-              value: {{ .Values.mainWorkers | quote }}
+              value: {{ .Values.workers | quote }}
             - name: ADV_WORKER_TIMEOUT
               value: "100"
             - name: ADV_WORKER_CLASS
               value: "sync"
+            - name: ADV_WORKER_NAME
+              value: {{ .Values.workerName | quote }}
             - name: ADV_DEBUG
               value: {{ if .Values.debugMode -}}"1"{{- else -}}"0"{{- end }}
             - name: ADV_MANAGERS

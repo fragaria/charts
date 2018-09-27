@@ -1,24 +1,24 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ include "adv-web.fullname" . }}-upload
+  name: {{ include "adv-zanet.fullname" . }}-upload
   labels:
-    app: {{ include "adv-web.name" . }}
-    chart: {{ include "adv-web.chart" . }}
+    app: {{ include "adv-zanet.name" . }}
+    chart: {{ include "adv-zanet.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
   replicas: {{ .Values.uploadReplicaCount }}
   selector:
     matchLabels:
-      app: {{ include "adv-web.name" . }}-upload
+      app: {{ include "adv-zanet.name" . }}-upload
       chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
       release: {{ .Release.Name }}
       heritage: "{{ .Release.Service }}"
   template:
     metadata:
       labels:
-        app: {{ include "adv-web.name" . }}-upload
+        app: {{ include "adv-zanet.name" . }}-upload
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: {{ .Release.Name }}
         heritage: "{{ .Release.Service }}"
@@ -43,6 +43,8 @@ spec:
               value: "600"
             - name: ADV_WORKER_CLASS
               value: "gevent"
+            - name: ADV_WORKER_NAME
+              value: {{ .Values.uploadWorkerName | quote }}
             - name: ADV_DEBUG
               value: {{ if .Values.debugMode -}}"1"{{- else -}}"0"{{- end }}
             - name: ADV_MANAGERS

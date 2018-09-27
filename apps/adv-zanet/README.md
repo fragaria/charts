@@ -1,8 +1,8 @@
-# Adventura stack website
+# Adventura stack admin (Zanet)
 
 ## Introduction
 
-This chart bootstraps a website deployment from adventura stack on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps an admin deployment from adventura stack on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -15,11 +15,11 @@ This chart bootstraps a website deployment from adventura stack on a [Kubernetes
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release adv-web \
+$ helm install --name my-release adv-zanet \
     --set ingress.enabled="true",ingress.hosts[0].name=default,ingress.hosts[0].host=advtest.local \
     --set configMapName=advconfig \
     --set secretName=advsecret \
-    --set settingsModule=adv.sites.advweb
+    --set settingsModule=adv.sites.adv
 ```
 
 The command deploys adv website on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
@@ -83,8 +83,10 @@ The command removes all the Kubernetes components associated with the chart and 
 | `configMapName`                              | (Required) Name of the shared config map.                                                    | `nil`                                                |
 | `secretName`                                 | (Required) Name of the shared secret.                                                        | `nil`                                                |
 | `debugMode`                                  | Run in debug mode?                                                                           | `false`                                              |
-| `workers`                                    | How many gunicorn workers to spawn?                                                          | `1`                                                  |
-| `replicaCount`                               | How many replicas to create?                                                                 | `1`                                                  |
+| `mainWorkers`                                | How many gunicorn workers of the main process to spawn?                                      | `1`                                                  |
+| `mainReplicaCount`                           | How many replicas to create for the main process?                                            | `1`                                                  |
+| `uploadWorkers`                              | How many gunicorn workers of the upload process to spawn?                                    | `1`                                                  |
+| `uploadReplicaCount`                         | How many replicas to create for the upload process?                                          | `1`                                                  |
 | `managers`                                   | Emails to managers.                                                                          | `[['admin', 'admin@fragaria.cz']]`                   |
 | `constance.backend`                          | Backend to use for Django constance.                                                         | `constance.backends.redisd.RedisBackend`             |
 | `ingress.enabled`                            | Prepare ingress for the service?                                                             | `false`                                              |
@@ -95,7 +97,7 @@ The command removes all the Kubernetes components associated with the chart and 
 | `service.type`                               | Kubernetes service type.                                                                     | `ClusterIP`                                          |
 | `service.port`                               | Port of the ADV container.                                                                   | `8000`                                               |
 | `image.tag`                                  | `adv` image tag.                                                                             | `0.1.2`                                              |
-| `image.repository`                           | `adv` image repository                                                                       | `registry.rancher.f-app.it/adv`                  |
+| `image.repository`                           | `adv` image repository                                                                       | `registry.rancher.f-app.it/adv`                |
 | `image.pullPolicy`                           | `adv` image pull policy                                                                      | `IfNotPresent`                                       |
 | `image.pullSecretName`                       | `adv` image secret to use when pulling the image, required for registry authentication       | `regcred`                                            |
 | `nodeSelector`                               | Node labels for pod assignment                                                               | {}                                                   |
@@ -112,7 +114,7 @@ $ helm install --name my-release \
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml adv-web
+$ helm install --name my-release -f values.yaml adv-zanet
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)

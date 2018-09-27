@@ -1,8 +1,8 @@
-# Adventura stack website
+# Adventura stack celery worker
 
 ## Introduction
 
-This chart bootstraps a website deployment from adventura stack on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
+This chart bootstraps a celery worker deployment from adventura stack on a [Kubernetes](http://kubernetes.io) cluster using the [Helm](https://helm.sh) package manager.
 
 ## Prerequisites
 
@@ -15,14 +15,14 @@ This chart bootstraps a website deployment from adventura stack on a [Kubernetes
 To install the chart with the release name `my-release`:
 
 ```bash
-$ helm install --name my-release adv-web \
+$ helm install --name my-release adv-celery \
     --set ingress.enabled="true",ingress.hosts[0].name=default,ingress.hosts[0].host=advtest.local \
     --set configMapName=advconfig \
     --set secretName=advsecret \
-    --set settingsModule=adv.sites.advweb
+    --set settingsModule=adv.sites.adv
 ```
 
-The command deploys adv website on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
+The command deploys adv celery worker on the Kubernetes cluster in the default configuration. The [configuration](#configuration) section lists the parameters that can be configured during installation.
 
 As you can see, config map with shared adv config and secret with sensitive data has to be provided upfront. Adv deployment expects to find following keys:
 
@@ -79,12 +79,11 @@ The command removes all the Kubernetes components associated with the chart and 
 
 | Parameter                                    | Description                                                                                  | Default                                              |
 | -------------------------------------------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| `settingsModule`                             | (Required) Django settings module.                                                           | `adv.sites.advweb`                                   |
 | `configMapName`                              | (Required) Name of the shared config map.                                                    | `nil`                                                |
 | `secretName`                                 | (Required) Name of the shared secret.                                                        | `nil`                                                |
 | `debugMode`                                  | Run in debug mode?                                                                           | `false`                                              |
-| `workers`                                    | How many gunicorn workers to spawn?                                                          | `1`                                                  |
-| `replicaCount`                               | How many replicas to create?                                                                 | `1`                                                  |
+| `replicaCount`                               | How many replicas to spawn?                                                                  | `1`                                                  |
+| `mode`                                       | What kind of celery this is (`beat` scheduler or `worker`)?                                  | `worker`                                             |
 | `managers`                                   | Emails to managers.                                                                          | `[['admin', 'admin@fragaria.cz']]`                   |
 | `constance.backend`                          | Backend to use for Django constance.                                                         | `constance.backends.redisd.RedisBackend`             |
 | `ingress.enabled`                            | Prepare ingress for the service?                                                             | `false`                                              |
@@ -112,7 +111,7 @@ $ helm install --name my-release \
 Alternatively, a YAML file that specifies the values for the parameters can be provided while installing the chart. For example,
 
 ```bash
-$ helm install --name my-release -f values.yaml adv-web
+$ helm install --name my-release -f values.yaml adv-celery
 ```
 
 > **Tip**: You can use the default [values.yaml](values.yaml)

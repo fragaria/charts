@@ -1,0 +1,73 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "adv-celery.fullname" . }}
+  labels:
+    app: {{ include "adv-celery.name" . }}
+    chart: {{ include "adv-celery.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "adv-celery.name" . }}
+      chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+      release: {{ .Release.Name }}
+      heritage: "{{ .Release.Service }}"
+  template:
+    metadata:
+      labels:
+        app: {{ include "adv-celery.name" . }}
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: {{ .Release.Name }}
+        heritage: "{{ .Release.Service }}"
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          command: ["celery-runner"]
+          args: ['{{ required ".Values.mode is required!" .Values.mode }}']
+          envFrom:
+            - configMapRef:
+                name: {{ required ".Values.configMapName is required!" .Values.configMapName | quote }}
+            - secretRef:
+                name: {{ required ".Values.secretName is required!" .Values.secretName | quote }}
+          env:
+            - name: ADV_DEBUG
+              value: {{ if .Values.debugMode -}}"1"{{- else -}}"0"{{- end }}
+            - name: ADV_MANAGERS
+              value: {{ toJson .Values.managers | quote }}
+            {{ if .Values.sentry.dsn -}}
+            - name: ADV_SENTRY_DSN
+              value: {{ .Values.sentry.dsn | quote }}
+            {{- end }}
+          {{- /* no probes for beat mode yet :( */ -}}
+          {{ if eq .Values.mode "worker" }}
+          readinessProbe:
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - exec celery -A adv.celeryconf inspect ping -d celery@$HOSTNAME
+            initialDelaySeconds: 30
+            timeoutSeconds: 40
+            periodSeconds: 180
+          {{ end }}
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "adv-web.fullname" . }}-upload
+  name: {{ include "adv-zanet.fullname" . }}-main
   labels:
-    app: {{ include "adv-web.name" . }}-upload
-    chart: {{ include "adv-web.chart" . }}
+    app: {{ include "adv-zanet.name" . }}-main
+    chart: {{ include "adv-zanet.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
@@ -15,5 +15,5 @@ spec:
       protocol: TCP
       name: http
   selector:
-    app: {{ include "adv-web.name" . }}-upload
+    app: {{ include "adv-zanet.name" . }}-main
     release: {{ .Release.Name }}

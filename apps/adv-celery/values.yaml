@@ -1,4 +1,4 @@
-# Default values for adv-web.
+# Default values for adv-celery.
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
@@ -14,16 +14,6 @@ fullnameOverride: ""
 service:
   type: ClusterIP
   port: 8000
-
-ingress:
-  enabled: false
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
-  hosts: []
-    # - name: default
-    #   host: test-adventura.f-app.it
-  createTls: true
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
@@ -43,12 +33,10 @@ tolerations: []
 
 affinity: {}
 
-workers: 1
 replicaCount: 1
+mode: "worker"
 
 debugMode: false
-settingsModule: "adv.sites.advweb"
-workerName: "web-worker"
 managers:
   - ['admin', 'admin@fragaria.cz']
 

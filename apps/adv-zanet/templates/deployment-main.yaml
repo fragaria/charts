@@ -1,0 +1,89 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "adv-zanet.fullname" . }}-main
+  labels:
+    app: {{ include "adv-zanet.name" . }}
+    chart: {{ include "adv-zanet.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.uploadReplicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "adv-zanet.name" . }}-main
+      chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+      release: {{ .Release.Name }}
+      heritage: "{{ .Release.Service }}"
+  template:
+    metadata:
+      labels:
+        app: {{ include "adv-zanet.name" . }}-main
+        chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
+        release: {{ .Release.Name }}
+        heritage: "{{ .Release.Service }}"
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ required ".Values.configMapName is required!" .Values.configMapName | quote }}
+            - secretRef:
+                name: {{ required ".Values.secretName is required!" .Values.secretName | quote }}
+          env:
+            - name: ADV_WORKERS
+              value: {{ .Values.uploadWorkers | quote }}
+            - name: ADV_WORKER_MAX_REQUESTS
+              value: "0"
+            - name: ADV_WORKER_TIMEOUT
+              value: "100"
+            - name: ADV_WORKER_CLASS
+              value: "sync"
+            - name: ADV_WORKER_NAME
+              value: {{ .Values.mainWorkerName | quote }}
+            - name: ADV_DEBUG
+              value: {{ if .Values.debugMode -}}"1"{{- else -}}"0"{{- end }}
+            - name: ADV_MANAGERS
+              value: {{ toJson .Values.managers | quote }}
+            - name: ADV_WEB_ROOT_URL
+              value: {{ (index .Values.ingress.hosts 0).host | quote }}
+            - name: DJANGO_SETTINGS_MODULE
+              value: {{ .Values.settingsModule | quote }}
+            {{ if .Values.sentry.dsn -}}
+            - name: ADV_SENTRY_DSN
+              value: {{ .Values.sentry.dsn | quote }}
+            {{- end }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.port }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /liveness-probe/
+              port: http
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /liveness-probe/
+              port: http
+            initialDelaySeconds: 20
+            timeoutSeconds: 5
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

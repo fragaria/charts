@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "adv-zanet.fullname" . }}-upload
+  labels:
+    app: {{ include "adv-zanet.name" . }}-upload
+    chart: {{ include "adv-zanet.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ include "adv-zanet.name" . }}-upload
+    release: {{ .Release.Name }}
