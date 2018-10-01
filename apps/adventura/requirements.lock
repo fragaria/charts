@@ -7,22 +7,22 @@ dependencies:
   version: 3.10.0
 - name: adv-celery
   repository: file://subcharts/adv-celery
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-celery
   repository: file://subcharts/adv-celery
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-elasticsearch
   repository: file://subcharts/adv-elasticsearch
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.0
+  version: 0.1.1
 - name: adv-zanet
   repository: file://subcharts/adv-zanet
   version: 0.1.0
@@ -32,5 +32,5 @@ dependencies:
 - name: adv-zanet
   repository: file://subcharts/adv-zanet
   version: 0.1.0
-digest: sha256:7a1a56023adcd871670c0eba2beacb25f1ee0b273c077c4bd93970ee0c7a43dd
-generated: 2018-09-27T13:52:07.771622788+02:00
+digest: sha256:83a880321e516580519b1bc0b3ffe5a349b3418ed951b8fcda18eacf102b25d8
+generated: 2018-10-01T12:53:19.395020694+02:00

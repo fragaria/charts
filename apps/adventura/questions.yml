@@ -145,7 +145,7 @@ questions:
     label: CLM API secret for Adventura
     group: CLM settings
   - variable: clm.cht.host
-    default: "http://apitest.adventura.cz"
+    default: "http://chinatours2.system4u.cz:10080"
     type: string
     required: true
     label: CLM API endpoint for Chinatours
