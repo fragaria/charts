@@ -22,7 +22,7 @@ questions:
     type: string
     required: true
     label: "Name of secret for pulling the images"
-    default: regcred
+    default: "regcred"
     group: General
 
   - variable: advweb.ingress.enabled
@@ -36,7 +36,7 @@ questions:
       - variable: advweb.ingress.hosts[0].host
         type: string
         required: true
-        default: www.adventura.cz
+        default: "www.adventura.cz"
         label: Hostname
       - variable: advweb.ingress.createTls
         type: boolean
@@ -54,7 +54,7 @@ questions:
       - variable: chtweb.ingress.hosts[0].host
         type: string
         required: true
-        default: www.chinatours.cz
+        default: "www.chinatours.cz"
         label: Hostname
       - variable: chtweb.ingress.createTls
         type: boolean
@@ -72,7 +72,7 @@ questions:
       - variable: ttweb.ingress.hosts[0].host
         type: string
         required: true
-        default: www.treetop.cz
+        default: "www.treetop.cz"
         label: Hostname
       - variable: ttweb.ingress.createTls
         type: boolean
@@ -90,7 +90,7 @@ questions:
       - variable: advzanet.ingress.hosts[0].host
         type: string
         required: true
-        default: zanet.adventura.cz
+        default: "zanet.adventura.cz"
         label: Hostname
       - variable: advzanet.ingress.createTls
         type: boolean
@@ -108,7 +108,7 @@ questions:
       - variable: chtzanet.ingress.hosts[0].host
         type: string
         required: true
-        default: zanet.chinatours.cz
+        default: "zanet.chinatours.cz"
         label: Hostname
       - variable: chtzanet.ingress.createTls
         type: boolean
@@ -126,7 +126,7 @@ questions:
       - variable: ttzanet.ingress.hosts[0].host
         type: string
         required: true
-        default: zanet.treetop.cz
+        default: "zanet.treetop.cz"
         label: Hostname
       - variable: ttzanet.ingress.createTls
         type: boolean
@@ -134,7 +134,7 @@ questions:
         label: Create TLS?
 
   - variable: clm.adv.host
-    default: http://apitest.adventura.cz
+    default: "http://apitest.adventura.cz"
     type: string
     required: true
     label: CLM API endpoint for Adventura
@@ -145,7 +145,7 @@ questions:
     label: CLM API secret for Adventura
     group: CLM settings
   - variable: clm.cht.host
-    default: http://apitest.adventura.cz
+    default: "http://apitest.adventura.cz"
     type: string
     required: true
     label: CLM API endpoint for Chinatours
@@ -181,7 +181,7 @@ questions:
         type: string
         label: AWS S3 host endpoint
         required: true
-        default: s3-eu-west-1.amazonaws.com
+        default: "s3-eu-west-1.amazonaws.com"
 
   - variable: disqus.apiKey
     type: string
@@ -213,13 +213,13 @@ questions:
   - variable: postgresql.postgresUser
     type: string
     label: User name
-    default: adv
+    default: "adv"
     required: true
     group: PostgreSQL settings
   - variable: postgresql.postgresDatabase
     type: string
     label: Database name
-    default: adv
+    default: "adv"
     required: true
     group: PostgreSQL settings
   - variable: postgresql.postgresPassword
