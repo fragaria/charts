@@ -24,16 +24,16 @@ spec:
         heritage: "{{ .Release.Service }}"
     spec:
       imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
+        - name: {{ .Values.global.pullSecretName }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
-                name: {{ required ".Values.configMapName is required!" .Values.configMapName | quote }}
+                name: {{ include "adventura.configmapname" . | quote }}
             - secretRef:
-                name: {{ required ".Values.secretName is required!" .Values.secretName | quote }}
+                name: {{ include "adventura.secretname" . | quote }}
           env:
             - name: ADV_WORKERS
               value: {{ .Values.uploadWorkers | quote }}

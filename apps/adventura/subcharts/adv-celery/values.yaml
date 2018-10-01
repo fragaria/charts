@@ -4,9 +4,8 @@
 
 image:
   repository: registry.rancher.f-app.it/adv
-  tag: 0.1.2
+  tag: 0.1.4
   pullPolicy: IfNotPresent
-  pullSecretName: regcred
 
 nameOverride: ""
 fullnameOverride: ""

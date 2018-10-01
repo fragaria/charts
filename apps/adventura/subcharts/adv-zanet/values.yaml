@@ -4,9 +4,8 @@
 
 image:
   repository: registry.rancher.f-app.it/adv
-  tag: 0.1.2
+  tag: 0.1.4
   pullPolicy: IfNotPresent
-  pullSecretName: regcred
 
 nameOverride: ""
 fullnameOverride: ""
@@ -43,12 +42,15 @@ tolerations: []
 
 affinity: {}
 
-workers: 1
-replicaCount: 1
+mainWorkers: 1
+mainWorkerName: "zanet-worker"
+mainReplicaCount: 1
+uploadWorkers: 1
+uploadWorkerName: "upload-worker"
+uploadReplicaCount: 1
 
 debugMode: false
 settingsModule: "adv.sites.advweb"
-workerName: "web-worker"
 managers:
   - ['admin', 'admin@fragaria.cz']
 

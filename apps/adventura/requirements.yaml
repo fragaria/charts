@@ -1,0 +1,84 @@
+dependencies:
+- name: postgresql
+  repository: "https://kubernetes-charts.storage.googleapis.com"
+  version: "0.18.0"
+  tags:
+    - core
+    - services
+- name: redis
+  repository: "https://kubernetes-charts.storage.googleapis.com"
+  version: "3.10.0"
+  tags:
+    - core
+    - services
+- name: adv-celery
+  repository: "file://subcharts/adv-celery"
+  version: ">= 0.0.1"
+  alias: celeryw
+  tags:
+    - celery
+    - celeryworker
+    - services
+- name: adv-celery
+  repository: "file://subcharts/adv-celery"
+  version: ">= 0.0.1"
+  alias: celeryb
+  tags:
+    - celery
+    - celerybeat
+    - services
+- name: adv-elasticsearch
+  repository: "file://subcharts/adv-elasticsearch"
+  version: ">= 0.0.1"
+  alias: elasticsearch
+  tags:
+    - search
+    - services
+- name: adv-web
+  repository: "file://subcharts/adv-web"
+  version: ">= 0.0.1"
+  alias: advweb
+  tags:
+    - apps
+    - adv
+    - website
+- name: adv-web
+  repository: "file://subcharts/adv-web"
+  version: ">= 0.0.1"
+  alias: chtweb
+  tags:
+    - apps
+    - cht
+    - website
+- name: adv-web
+  repository: "file://subcharts/adv-web"
+  version: ">= 0.0.1"
+  alias: ttweb
+  tags:
+    - apps
+    - tt
+    - website
+- name: adv-zanet
+  repository: "file://subcharts/adv-zanet"
+  version: ">= 0.0.1"
+  alias: advzanet
+  tags:
+    - apps
+    - adv
+    - admin
+- name: adv-zanet
+  repository: "file://subcharts/adv-zanet"
+  version: ">= 0.0.1"
+  alias: chtzanet
+  tags:
+    - apps
+    - cht
+    - admin
+- name: adv-zanet
+  repository: "file://subcharts/adv-zanet"
+  version: ">= 0.0.1"
+  alias: ttzanet
+  tags:
+    - apps
+    - tt
+    - admin

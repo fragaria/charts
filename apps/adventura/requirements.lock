@@ -1,0 +1,36 @@
+dependencies:
+- name: postgresql
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 0.18.0
+- name: redis
+  repository: https://kubernetes-charts.storage.googleapis.com
+  version: 3.10.0
+- name: adv-celery
+  repository: file://subcharts/adv-celery
+  version: 0.1.0
+- name: adv-celery
+  repository: file://subcharts/adv-celery
+  version: 0.1.0
+- name: adv-elasticsearch
+  repository: file://subcharts/adv-elasticsearch
+  version: 0.1.0
+- name: adv-web
+  repository: file://subcharts/adv-web
+  version: 0.1.0
+- name: adv-web
+  repository: file://subcharts/adv-web
+  version: 0.1.0
+- name: adv-web
+  repository: file://subcharts/adv-web
+  version: 0.1.0
+- name: adv-zanet
+  repository: file://subcharts/adv-zanet
+  version: 0.1.0
+- name: adv-zanet
+  repository: file://subcharts/adv-zanet
+  version: 0.1.0
+- name: adv-zanet
+  repository: file://subcharts/adv-zanet
+  version: 0.1.0
+digest: sha256:7a1a56023adcd871670c0eba2beacb25f1ee0b273c077c4bd93970ee0c7a43dd
+generated: 2018-09-27T13:52:07.771622788+02:00

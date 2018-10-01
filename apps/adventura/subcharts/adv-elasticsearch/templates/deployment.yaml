@@ -22,7 +22,7 @@ spec:
         heritage: "{{ .Release.Service }}"
     spec:
       imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
+        - name: {{ .Values.global.pullSecretName }}
       initContainers:
         - name: init-sysctl
           image: "busybox:1.27.2"

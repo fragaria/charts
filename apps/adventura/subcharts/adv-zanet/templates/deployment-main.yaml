@@ -1,48 +1,50 @@
 apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
-  name: {{ include "adv-web.fullname" . }}
+  name: {{ include "adv-zanet.fullname" . }}-main
   labels:
-    app: {{ include "adv-web.name" . }}
-    chart: {{ include "adv-web.chart" . }}
+    app: {{ include "adv-zanet.name" . }}
+    chart: {{ include "adv-zanet.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
 spec:
-  replicas: {{ .Values.replicaCount }}
+  replicas: {{ .Values.uploadReplicaCount }}
   selector:
     matchLabels:
-      app: {{ include "adv-web.name" . }}
+      app: {{ include "adv-zanet.name" . }}-main
       chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
       release: {{ .Release.Name }}
       heritage: "{{ .Release.Service }}"
   template:
     metadata:
       labels:
-        app: {{ include "adv-web.name" . }}
+        app: {{ include "adv-zanet.name" . }}-main
         chart: "{{ .Chart.Name }}-{{ .Chart.Version }}"
         release: {{ .Release.Name }}
         heritage: "{{ .Release.Service }}"
     spec:
       imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
+        - name: {{ .Values.global.pullSecretName }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
-                name: {{ required ".Values.configMapName is required!" .Values.configMapName | quote }}
+                name: {{ include "adventura.configmapname" . | quote }}
             - secretRef:
-                name: {{ required ".Values.secretName is required!" .Values.secretName | quote }}
+                name: {{ include "adventura.secretname" . | quote }}
           env:
             - name: ADV_WORKERS
-              value: {{ .Values.workers | quote }}
+              value: {{ .Values.uploadWorkers | quote }}
+            - name: ADV_WORKER_MAX_REQUESTS
+              value: "0"
             - name: ADV_WORKER_TIMEOUT
               value: "100"
             - name: ADV_WORKER_CLASS
               value: "sync"
             - name: ADV_WORKER_NAME
-              value: {{ .Values.workerName | quote }}
+              value: {{ .Values.mainWorkerName | quote }}
             - name: ADV_DEBUG
               value: {{ if .Values.debugMode -}}"1"{{- else -}}"0"{{- end }}
             - name: ADV_MANAGERS

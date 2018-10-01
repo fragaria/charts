@@ -1,0 +1,125 @@
+
+global:
+  nameOverride: ""
+  fullnameOverride: ""
+  pullSecretName: regcred
+
+# Shared configuration
+clm:
+  adv:
+    host: http://apitest.adventura.cz
+    secret: ""
+  cht:
+    host: https://api.chinatours.cz
+    secret: ""
+
+defaultFromEmail: ""
+constanceBackend: "constance.backends.redisd.RedisBackend"
+
+secret: ""
+webApiSalt: ""
+
+aws:
+  enabled: true
+  accessKeyId: ""
+  secretAccessKey: ""
+  s3Host: ""
+
+postageApp:
+  apieKey: ""
+
+disqus:
+  apiKey: ""
+  apiSecret: ""
+
+postgresql:
+  peristence:
+    size: 2Gi
+
+  postgresDatabase: adv
+  postgresPassword: adv
+  postgresUser: adv
+
+redis:
+  usePassword: false
+
+  master:
+    persistence:
+      enabled: false
+
+
+# Individual stack components
+
+celeryw:
+  mode: "worker"
+
+celeryb:
+  mode: "beat"
+
+elasticsearch: {}
+
+advweb:
+  settingsModule: adv.sites.advweb
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: advweb.local
+
+chtweb:
+  settingsModule: adv.sites.chtweb
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: chtweb.local
+
+ttweb:
+  settingsModule: adv.sites.ttweb
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: ttweb.local
+
+advzanet:
+  settingsModule: adv.sites.adv
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: advzanet.local
+
+chtzanet:
+  settingsModule: adv.sites.cht
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: chtzanet.local
+
+ttzanet:
+  settingsModule: adv.sites.tt
+
+  ingress:
+    enabled: true
+    createTls: false
+
+    hosts:
+      - name: default
+        host: ttzanet.local

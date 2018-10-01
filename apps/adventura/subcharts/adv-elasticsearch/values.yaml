@@ -8,7 +8,6 @@ image:
   repository: registry.rancher.f-app.it/adv-elasticsearch
   tag: 0.1.2
   pullPolicy: IfNotPresent
-  pullSecretName: regcred
 
 nameOverride: ""
 fullnameOverride: ""
