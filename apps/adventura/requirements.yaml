@@ -42,6 +42,7 @@ dependencies:
     - apps
     - adv
     - website
+    - advwebsite
 - name: adv-web
   repository: "file://subcharts/adv-web"
   version: ">= 0.0.1"
@@ -50,6 +51,7 @@ dependencies:
     - apps
     - cht
     - website
+    - chtwebsite
 - name: adv-web
   repository: "file://subcharts/adv-web"
   version: ">= 0.0.1"
@@ -58,6 +60,7 @@ dependencies:
     - apps
     - tt
     - website
+    - ttwebsite
 - name: adv-zanet
   repository: "file://subcharts/adv-zanet"
   version: ">= 0.0.1"
@@ -66,6 +69,7 @@ dependencies:
     - apps
     - adv
     - admin
+    - advzanet
 - name: adv-zanet
   repository: "file://subcharts/adv-zanet"
   version: ">= 0.0.1"
@@ -74,6 +78,7 @@ dependencies:
     - apps
     - cht
     - admin
+    - chtzanet
 - name: adv-zanet
   repository: "file://subcharts/adv-zanet"
   version: ">= 0.0.1"
@@ -82,3 +87,4 @@ dependencies:
     - apps
     - tt
     - admin
+    - ttzanet
