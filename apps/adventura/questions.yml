@@ -31,29 +31,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Adventura website"
+  - variable: advweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Adventura website"
+    default: "false"
+    show_if: "tags.advwebsite=true"
     show_subquestion_if: true
     subquestions:
-      - variable: advweb.ingress.enabled
-        type: boolean
+      - variable: advweb.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: advweb.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "www.adventura.cz"
-            label: Hostname
-          - variable: advweb.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: advweb.debugMode
+        default: "www.adventura.cz"
+        label: Hostname
+      - variable: advweb.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: advweb.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+    default: "false"
 
   - variable: tags.chtwebsite
     type: boolean
@@ -61,29 +63,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Chinatours website"
+  - variable: chtweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Chinatours website"
+    default: "false"
+    show_if: "tags.chtwebsite=true"
     show_subquestion_if: true
     subquestions:
-      - variable: chtweb.ingress.enabled
-        type: boolean
+      - variable: chtweb.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: chtweb.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "www.chinatours.cz"
-            label: Hostname
-          - variable: chtweb.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: chtweb.debugMode
+        default: "www.chinatours.cz"
+        label: Hostname
+      - variable: chtweb.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: chtweb.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+    default: "false"
 
   - variable: tags.ttwebsite
     type: boolean
@@ -91,29 +95,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Treetop website"
+  - variable: ttweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Treetop website"
+    default: "false"
+    show_if: "tags.ttwebsite=true"
     show_subquestion_if: true
     subquestions:
-      - variable: ttweb.ingress.enabled
-        type: boolean
+      - variable: ttweb.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: ttweb.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "www.treetop.cz"
-            label: Hostname
-          - variable: ttweb.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: ttweb.debugMode
+        default: "www.treetop.cz"
+        label: Hostname
+      - variable: ttweb.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: ttweb.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+    default: "false"
 
   - variable: tags.advzanet
     type: boolean
@@ -121,29 +127,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Adventura ZANET"
+  - variable: advzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Adventura ZANET"
+    default: "false"
+    show_if: "tags.advzanet=true"
     show_subquestion_if: true
     subquestions:
-      - variable: advzanet.ingress.enabled
-        type: boolean
+      - variable: advzanet.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: advzanet.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "zanet.adventura.cz"
-            label: Hostname
-          - variable: advzanet.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: advzanet.debugMode
+        default: "zanet.adventura.cz"
+        label: Hostname
+      - variable: advzanet.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: advzanet.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+    default: "false"
 
   - variable: tags.chtzanet
     type: boolean
@@ -151,29 +159,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Chinatours ZANET"
+  - variable: chtzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Chinatours ZANET"
+    default: "false"
+    show_if: "tags.chtzanet=true"
     show_subquestion_if: true
     subquestions:
-      - variable: chtzanet.ingress.enabled
-        type: boolean
+      - variable: chtzanet.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: chtzanet.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "zanet.chinatours.cz"
-            label: Hostname
-          - variable: chtzanet.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: chtzanet.debugMode
+        default: "zanet.chinatours.cz"
+        label: Hostname
+      - variable: chtzanet.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: chtzanet.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+    default: "false"
 
   - variable: tags.ttzanet
     type: boolean
@@ -181,29 +191,31 @@ questions:
     label: "Enable?"
     default: "true"
     group: "Treetop ZANET"
+  - variable: ttzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Treetop ZANET"
+    default: "false"
+    show_if: "tags.ttzanet=true"
     show_subquestion_if: true
     subquestions:
-      - variable: ttzanet.ingress.enabled
-        type: boolean
+      - variable: ttzanet.ingress.hosts[0].host
+        type: string
         required: true
-        label: "Create ingress?"
-        default: "false"
-        show_subquestion_if: true
-        subquestions:
-          - variable: ttzanet.ingress.hosts[0].host
-            type: string
-            required: true
-            default: "zanet.treetop.cz"
-            label: Hostname
-          - variable: ttzanet.ingress.createTls
-            type: boolean
-            default: "false"
-            label: Create TLS?
-      - variable: ttzanet.debugMode
+        default: "zanet.treetop.cz"
+        label: Hostname
+      - variable: ttzanet.ingress.createTls
         type: boolean
-        required: true
-        label: "Debug mode enabled?"
         default: "false"
+        label: Create TLS?
+  - variable: ttzanet.debugMode
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+    default: "false"
 
   - variable: clm.adv.host
     default: "http://apitest.adventura.cz"

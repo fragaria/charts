@@ -3,7 +3,17 @@ entries:
   adventura:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.060611761+02:00
+    created: 2018-10-01T14:42:59.989937227+02:00
+    description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
+    digest: 412b61fbc5c62b99f52fb26f72002003eeec7b2142d0d14c01444826128fb889
+    icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
+    name: adventura
+    urls:
+    - https://fragaria.github.io/charts/adventura-0.2.7.tgz
+    version: 0.2.7
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-01T14:42:59.986879383+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 8b010314b985c3a1ba59f07a1d8eca003a2d184e67009df2e7f9a33aaeff3097
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -13,7 +23,7 @@ entries:
     version: 0.2.6
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.058051917+02:00
+    created: 2018-10-01T14:42:59.982395715+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 89c2516ec296e3ef7ea3e8f6e83a7e15f23e6bba0e683b37e9a26bd6e8bcfb6d
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -23,7 +33,7 @@ entries:
     version: 0.2.5
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.054522285+02:00
+    created: 2018-10-01T14:42:59.977724722+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: e892647bb9eceaf5bf434c8c8c6e2f97855cdaa1f2bf0ee8e7ae2e83d17a9eb2
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -33,7 +43,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.050875168+02:00
+    created: 2018-10-01T14:42:59.973209131+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 485c68c769d2a9b78ad76d93539953318c432ca569ef8fec3d9efef13398904b
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -43,7 +53,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.046018953+02:00
+    created: 2018-10-01T14:42:59.969689614+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 62a61b7d84d00a62a31cc6222767f79cec30b82a3f4539f57013cc965981236f
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -53,7 +63,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.0420094+02:00
+    created: 2018-10-01T14:42:59.966488755+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 46eb55653b60d2612ab9be38785041faf7ef43e34e1e089aa6bb55b73447e381
     icon: https://www.adventura.cz/static/web/adv/images/logo@2x.3ecd67081fd4.png
@@ -63,7 +73,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.038604695+02:00
+    created: 2018-10-01T14:42:59.961803911+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 6b47ed731ffe02fb001d7a0e9c82bb68d4f5a45d972568d498a86a882392bb40
     name: adventura
@@ -72,7 +82,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.035191438+02:00
+    created: 2018-10-01T14:42:59.957965237+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: d009e655a85820585e101038917b180e5450536c93f2822e0df3ad95dba4b52c
     name: adventura
@@ -82,7 +92,7 @@ entries:
   boris:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.073819807+02:00
+    created: 2018-10-01T14:43:00.001059507+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 90a768fc7940b341745647ac60cfadf353416a640418a1bc2990c36a8e2bcbf3
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -92,7 +102,7 @@ entries:
     version: 0.2.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.071873846+02:00
+    created: 2018-10-01T14:42:59.999466238+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 34a3e81b2002531eb70b039e4384a429986a10f43a2d2747439837384a60ae8d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -102,7 +112,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.070383758+02:00
+    created: 2018-10-01T14:42:59.997991768+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 67f8beb255a623ca7f6f36554ecbd3fe204cd6da731b0bcbe37cd65cdb91f3c4
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -112,7 +122,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.068449171+02:00
+    created: 2018-10-01T14:42:59.996436995+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: ef1c091df8dc84fcf4fcec6d9501532fc884f39ee99c2c7a182a7059962c20e6
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -122,7 +132,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.066888358+02:00
+    created: 2018-10-01T14:42:59.99499649+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 7085c2053c31c9c871c3a535394aa1b8e33ba0ab4f05de2ed1db33fc0f908346
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -132,7 +142,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.064064378+02:00
+    created: 2018-10-01T14:42:59.993419137+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 4670ebe4600f0c580e111a1ce6141f2940e2a38db94bce1a0361e447258052c6
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -142,11 +152,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-01T14:32:06.062250786+02:00
+    created: 2018-10-01T14:42:59.991855214+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a02eb9fc3f403d0e881c180ee42fd4c7476d27e7b4c72480f62c0a81efddbbeb
     name: boris
     urls:
     - https://fragaria.github.io/charts/boris-0.1.0.tgz
     version: 0.1.0
-generated: 2018-10-01T14:32:06.030573121+02:00
+generated: 2018-10-01T14:42:59.953393691+02:00
