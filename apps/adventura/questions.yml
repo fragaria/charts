@@ -49,6 +49,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: advweb.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "advweb.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: advweb.debugMode
     type: boolean
     required: true
@@ -95,6 +101,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: chtweb.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "chtweb.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: chtweb.debugMode
     type: boolean
     required: true
@@ -141,6 +153,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: ttweb.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "ttweb.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: ttweb.debugMode
     type: boolean
     required: true
@@ -187,6 +205,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: advzanet.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "advzanet.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: advzanet.debugMode
     type: boolean
     required: true
@@ -241,6 +265,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: chtzanet.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "chtzanet.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: chtzanet.debugMode
     type: boolean
     required: true
@@ -295,6 +325,12 @@ questions:
         type: boolean
         default: "false"
         label: Create TLS?
+      - variable: ttzanet.ingress.hosts[0].name
+        type: string
+        required: true
+        show_if: "ttzanet.ingress.createTls"
+        default: "default"
+        label: TLS secret name
   - variable: ttzanet.debugMode
     type: boolean
     required: true

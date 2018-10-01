@@ -16,21 +16,21 @@ dependencies:
   version: 0.1.1
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.1
+  version: 0.1.2
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.1
+  version: 0.1.2
 - name: adv-web
   repository: file://subcharts/adv-web
-  version: 0.1.1
+  version: 0.1.2
 - name: adv-zanet
   repository: file://subcharts/adv-zanet
-  version: 0.1.0
+  version: 0.1.2
 - name: adv-zanet
   repository: file://subcharts/adv-zanet
-  version: 0.1.0
+  version: 0.1.2
 - name: adv-zanet
   repository: file://subcharts/adv-zanet
-  version: 0.1.0
-digest: sha256:83a880321e516580519b1bc0b3ffe5a349b3418ed951b8fcda18eacf102b25d8
-generated: 2018-10-01T12:53:19.395020694+02:00
+  version: 0.1.2
+digest: sha256:6724739848c3ecd8dba64ffeed2cc9ec89085be19bd5bd07ddea422d853d60f7
+generated: 2018-10-01T18:10:38.396906103+02:00
