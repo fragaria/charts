@@ -1,0 +1,244 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: defaultFromEmail
+    type: string
+    required: true
+    label: Default email sender
+    group: General
+  - variable: secret
+    type: string
+    required: true
+    label: App secret key
+    group: General
+  - variable: webApiSalt
+    type: string
+    required: true
+    label: API salt
+    group: General
+  - variable: global.pullSecretName
+    type: string
+    required: true
+    label: "Name of secret for pulling the images"
+    default: regcred
+    group: General
+
+  - variable: advweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for adventura website?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: advweb.ingress.hosts[0].host
+        type: string
+        required: true
+        default: www.adventura.cz
+        label: Adventura website hostname
+      - variable: advweb.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+  - variable: chtweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for chinatours website?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: chtweb.ingress.hosts[0].host
+        type: string
+        required: true
+        default: www.chinatours.cz
+        label: Chinatours website hostname
+      - variable: chtweb.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+  - variable: ttweb.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for treetop website?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ttweb.ingress.hosts[0].host
+        type: string
+        required: true
+        default: www.treetop.cz
+        label: Treetop website hostname
+      - variable: ttweb.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+  - variable: advzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for Adventura ZANET?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: advzanet.ingress.hosts[0].host
+        type: string
+        required: true
+        default: zanet.adventura.cz
+        label: Adventura ZANET hostname
+      - variable: advzanet.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+  - variable: chtzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for Chinatours ZANET?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: chtzanet.ingress.hosts[0].host
+        type: string
+        required: true
+        default: zanet.chinatours.cz
+        label: Chinatours ZANET hostname
+      - variable: chtzanet.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+  - variable: ttzanet.ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress for Treetop ZANET?"
+    default: "false"
+    group: "Ingress settings"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ttzanet.ingress.hosts[0].host
+        type: string
+        required: true
+        default: zanet.treetop.cz
+        label: Treetop ZANET hostname
+      - variable: ttzanet.ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+
+  - variable: clm.adv.host
+    default: http://apitest.adventura.cz
+    type: string
+    required: true
+    label: CLM API endpoint for Adventura
+    group: CLM settings
+  - variable: clm.adv.secret
+    type: string
+    required: true
+    label: CLM API secret for Adventura
+    group: CLM settings
+  - variable: clm.cht.host
+    default: http://apitest.adventura.cz
+    type: string
+    required: true
+    label: CLM API endpoint for Chinatours
+    group: CLM settings
+  - variable: clm.cht.secret
+    type: string
+    required: true
+    label: CLM API secret for Chinatours
+    group: CLM settings
+
+  - variable: postageApp.apiKey
+    type: string
+    required: true
+    label: PostageApp api key
+    group: PostageApp settings
+
+  - variable: aws.enabled
+    type: boolean
+    label: Use AWS S3 for media storage?
+    default: "true"
+    group: AWS settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: aws.accessKeyId
+        type: string
+        label: AWS Access Key ID
+        required: true
+      - variable: aws.secretAccessKey
+        type: string
+        label: AWS Secret Access Key
+        required: true
+      - variable: aws.s3Host
+        type: string
+        label: AWS S3 host endpoint
+        required: true
+        default: s3-eu-west-1.amazonaws.com
+
+  - variable: disqus.apiKey
+    type: string
+    label: Disqus API key
+    required: true
+    group: Disqus settings
+  - variable: disqus.apiSecret
+    type: string
+    label: Disqus API secret
+    required: true
+    group: Disqus settings
+
+  - variable: postgresql.persistence.enabled
+    type: boolean
+    label: PostgreSQL persistence enabled
+    required: true
+    group: PostgreSQL settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: postgresql.persistence.size
+        default: "8Gi"
+        label: Volume size
+        type: string
+      - variable: postgresql.persistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+  - variable: postgresql.postgresUser
+    type: string
+    label: User name
+    default: adv
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresDatabase
+    type: string
+    label: Database name
+    default: adv
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresPassword
+    type: string
+    label: User password
+    description: "Please choose a strong password."
+    required: true
+    group: PostgreSQL settings
+
+  - variable: redis.master.persistence.enabled
+    type: boolean
+    label: Redis persistence enabled
+    required: true
+    group: Redis settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: redis.master.persistence.size
+        default: "4Gi"
+        label: Volume size
+        type: string
+      - variable: redis.master.persistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+
+

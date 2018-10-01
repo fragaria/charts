@@ -10,7 +10,7 @@ clm:
     host: http://apitest.adventura.cz
     secret: ""
   cht:
-    host: https://api.chinatours.cz
+    host: http://chinatours2.system4u.cz:10080
     secret: ""
 
 defaultFromEmail: ""
@@ -26,7 +26,7 @@ aws:
   s3Host: ""
 
 postageApp:
-  apieKey: ""
+  apiKey: ""
 
 disqus:
   apiKey: ""
@@ -34,7 +34,7 @@ disqus:
 
 postgresql:
   peristence:
-    size: 2Gi
+    size: 8Gi
 
   postgresDatabase: adv
   postgresPassword: adv
