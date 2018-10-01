@@ -56,6 +56,20 @@ questions:
     group: "Adventura website"
     show_if: "tags.advwebsite=true"
     default: "false"
+  - variable: advweb.replicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas"
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+    default: 1
+  - variable: advweb.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
 
   - variable: tags.chtwebsite
     type: boolean
@@ -88,6 +102,20 @@ questions:
     group: "Chinatours website"
     show_if: "tags.chtwebsite=true"
     default: "false"
+  - variable: chtweb.replicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas"
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+    default: 1
+  - variable: chtweb.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
 
   - variable: tags.ttwebsite
     type: boolean
@@ -120,6 +148,20 @@ questions:
     group: "Treetop website"
     show_if: "tags.ttwebsite=true"
     default: "false"
+  - variable: ttweb.replicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas"
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+    default: 1
+  - variable: ttweb.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
 
   - variable: tags.advzanet
     type: boolean
@@ -152,6 +194,28 @@ questions:
     group: "Adventura ZANET"
     show_if: "tags.advzanet=true"
     default: "false"
+  - variable: advzanet.mainReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for main process"
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+    default: 1
+  - variable: advzanet.uploadReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for upload process"
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+    default: 1
+  - variable: advzanet.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
 
   - variable: tags.chtzanet
     type: boolean
@@ -184,6 +248,28 @@ questions:
     group: "Chinatours ZANET"
     show_if: "tags.chtzanet=true"
     default: "false"
+  - variable: chtzanet.mainReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for main process"
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+    default: 1
+  - variable: chtzanet.uploadReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for upload process"
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+    default: 1
+  - variable: chtzanet.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
 
   - variable: tags.ttzanet
     type: boolean
@@ -216,6 +302,28 @@ questions:
     group: "Treetop ZANET"
     show_if: "tags.ttzanet=true"
     default: "false"
+  - variable: ttzanet.mainReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for main process"
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+    default: 1
+  - variable: ttzanet.uploadReplicaCount
+    type: int
+    min: 1
+    required: true
+    label: "Number of replicas for upload process"
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+    default: 1
+  - variable: ttzanet.sentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
 
   - variable: clm.adv.host
     default: "http://apitest.adventura.cz"
