@@ -325,6 +325,44 @@ questions:
     group: "Treetop ZANET"
     show_if: "tags.ttzanet=true"
 
+  - variable: tags.celery
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "Celery"
+    show_subquestion_if: true
+    subquestions:
+      - variable: celeryb.debugMode
+        type: boolean
+        required: true
+        label: "Debug mode enabled for celery beat?"
+        default: "false"
+      - variable: celeryw.debugMode
+        type: boolean
+        required: true
+        label: "Debug mode enabled for celery workers?"
+        default: "false"
+      - variable: celeryw.replicaCount
+        type: int
+        min: 1
+        required: true
+        label: "Number of workers"
+        default: 1
+
+  - variable: tags.search
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "ElasticSearch"
+    show_subquestion_if: true
+    subquestions:
+      - variable: elasticsearch.replicaCount
+        type: int
+        required: true
+        min: 1
+        label: "Number of replicas"
+        default: 1
+
   - variable: clm.adv.host
     default: "http://apitest.adventura.cz"
     type: string
