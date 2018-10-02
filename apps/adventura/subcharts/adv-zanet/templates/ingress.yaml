@@ -4,16 +4,15 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ $fullName }}
+  name: {{ $fullName }}-gevent
   labels:
     app: {{ $name }}
     chart: {{ include "adv-zanet.chart" . }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
-{{- with .Values.ingress.annotations }}
   annotations:
-{{ toYaml . | indent 4 }}
-{{- end }}
+    nginx.org/proxy-read-timeout: "600s"
+    nginx.org/client-max-body-size: "300M"
 spec:
 {{- if .Values.ingress.createTls }}
   tls:
@@ -44,6 +43,35 @@ spec:
             backend:
               serviceName: {{ $fullName }}-upload
               servicePort: http
+  {{- end }}
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ $fullName }}-sync
+  labels:
+    app: {{ $name }}
+    chart: {{ include "adv-zanet.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+{{- if .Values.ingress.createTls }}
+  tls:
+  {{- range .Values.ingress.hosts }}
+    - hosts:
+        - {{ .host | quote }}
+      secretName: {{ $name }}-{{ default "default" .name }}-tls
+  {{- end }}
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
           - path: "/"
             backend:
               serviceName: {{ $fullName }}-main
