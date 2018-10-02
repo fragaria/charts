@@ -22,7 +22,7 @@ questions:
     type: string
     required: true
     label: "Name of secret for pulling the images"
-    default: "regcred"
+    default: "fragaria-registry"
     group: General
 
   - variable: tags.advwebsite

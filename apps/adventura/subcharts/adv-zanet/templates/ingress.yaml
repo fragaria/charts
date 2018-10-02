@@ -12,7 +12,6 @@ metadata:
     heritage: {{ .Release.Service }}
 {{- with .Values.ingress.annotations }}
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: "$baseuri"
 {{ toYaml . | indent 4 }}
 {{- end }}
 spec:
@@ -29,7 +28,19 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
-          - path: "/(api/v.*/photo(s/export.*|-collections/(upload|.*/add))/|admin/app/downloadablefile/add/|api/v.*/tours/mass-make-archive-versions/.*)"
+          - path: "/api/v1/tours/mass-make-archive-versions"
+            backend:
+              serviceName: {{ $fullName }}-upload
+              servicePort: http
+          - path: "/api/v1/photos"
+            backend:
+              serviceName: {{ $fullName }}-upload
+              servicePort: http
+          - path: "/api/v1/photo-collections"
+            backend:
+              serviceName: {{ $fullName }}-upload
+              servicePort: http
+          - path: "/admin/app/downloadablefile/add"
             backend:
               serviceName: {{ $fullName }}-upload
               servicePort: http
