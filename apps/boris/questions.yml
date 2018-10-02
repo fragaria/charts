@@ -1,0 +1,121 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: borisAdminEmail
+    type: string
+    required: true
+    label: Email to administrator
+    default: admin@fragaria.cz
+    group: General
+  - variable: borisSecretKey
+    type: string
+    required: true
+    label: App secret key
+    group: General
+  - variable: borisDebug
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "General"
+    default: "false"
+  - variable: replicaCount
+    type: int
+    required: true
+    label: "Number of replicas"
+    group: "General"
+    default: 1
+  - variable: borisWorkers
+    type: int
+    required: true
+    label: "Number of workers inside replica"
+    group: "General"
+    default: 1
+  - variable: image.pullSecretName
+    type: string
+    required: true
+    label: "Name of secret for pulling the images"
+    default: "fragaria-registry"
+    group: General
+
+  - variable: borisCreateSuperUser
+    type: boolean
+    required: true
+    label: "Create superuser account?"
+    default: "false"
+    group: Superuser account bootstrap
+    show_subquestion_if: true
+    subquestions:
+      - variable: borisSuperUserUsername
+        types: string
+        required: true
+        label: "Superuser username"
+        default: "admin"
+      - variable: borisSuperUserEmail
+        types: string
+        required: true
+        label: "Superuser email"
+        default: "admin@fragaria.cz"
+      - variable: borisSuperUserPassword
+        types: string
+        required: true
+        label: "Superuser password"
+
+  - variable: ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Ingress"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ingress.hosts[0].host
+        type: string
+        required: true
+        default: "bor-is.cz"
+        label: Hostname
+      - variable: ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+      - variable: ingress.hosts[0].name
+        type: string
+        required: true
+        default: "default"
+        label: TLS secret name
+
+  - variable: mysql.persistence.enabled
+    type: boolean
+    label: MySQL persistence enabled
+    required: true
+    group: MySQL settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: mysql.persistence.size
+        default: "4Gi"
+        label: Volume size
+        type: string
+      - variable: mysql.persistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+  - variable: mysql.mysqlUser
+    type: string
+    label: User name
+    default: "boris"
+    required: true
+    group: MySQL settings
+  - variable: mysql.mysqlDatabase
+    type: string
+    label: Database name
+    default: "boris"
+    required: true
+    group: MySQL settings
+  - variable: mysql.mysqlPassword
+    type: string
+    label: User password
+    description: "Please choose a strong password."
+    required: true
+    group: MySQL settings
