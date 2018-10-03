@@ -54,17 +54,17 @@ questions:
     show_subquestion_if: true
     subquestions:
       - variable: borisSuperUserUsername
-        types: string
+        type: string
         required: true
         label: "Superuser username"
         default: "admin"
       - variable: borisSuperUserEmail
-        types: string
+        type: string
         required: true
         label: "Superuser email"
         default: "admin@fragaria.cz"
       - variable: borisSuperUserPassword
-        types: string
+        type: string
         required: true
         label: "Superuser password"
 
