@@ -3,12 +3,6 @@ categories:
 labels:
   io.rancher.certified: experimental
 questions:
-  - variable: nameOverride
-    type: string
-    required: true
-    label: Installation name
-    default: boris
-    group: General
   - variable: borisAdminEmail
     type: string
     required: true
@@ -43,6 +37,12 @@ questions:
     required: true
     label: "Name of secret for pulling the images"
     default: "fragaria-registry"
+    group: General
+  - variable: nameOverride
+    type: string
+    required: false
+    label: Name override
+    default: boris
     group: General
 
   - variable: borisCreateSuperUser
