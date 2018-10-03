@@ -3,6 +3,12 @@ categories:
 labels:
   io.rancher.certified: experimental
 questions:
+  - variable: nameOverride
+    type: string
+    required: true
+    label: Installation name
+    default: boris
+    group: General
   - variable: borisAdminEmail
     type: string
     required: true
