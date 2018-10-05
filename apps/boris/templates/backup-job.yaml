@@ -27,6 +27,8 @@ spec:
           - name:  mysqldump
             image: tnir/mysqlclient
             command:
+              - 'sh'
+              - '-c'
               - 'mysqldump --user=$DB_USER --password=$DB_PASS $DB_NAME | gzip > /mysqldump/{{ .Release.Name }}-${DB_NAME}-$(date +%Y%m%d%H%M%S).sql'
             env:
               - name: DB_NAME
