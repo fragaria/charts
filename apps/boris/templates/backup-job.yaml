@@ -32,29 +32,29 @@ spec:
               - name: DB_NAME
                 valueFrom:
                   configMapKeyRef:
-                    name: {{ template "boris.configmapname" . }}
+                    name: {{ include "boris.configmapname" . | quote }}
                     key: BORIS_DB_NAME
               - name: DB_HOST
                 valueFrom:
                   configMapKeyRef:
-                    name: {{ template "boris.configmapname" . }}
+                    name: {{ include "boris.configmapname" . | quote }}
                     key: BORIS_DB_HOST
               - name: DB_USER
                 valueFrom:
-                  secretKeyRef:
-                    name: {{ template "boris.configmapname" . }}
+                  configMapKeyRef:
+                    name: {{ include "boris.configmapname" . | quote }}
                     key: BORIS_DB_USER
               - name: DB_PASS
                 valueFrom:
                   secretKeyRef:
-                    name: {{ template "mysql.fullname" . }}
-                    key: mysql-password
-              volumeMounts:
-                - name: mysqldump
-                  mountPath: /mysqldump
-            volumes:
+                    name: {{ include "mysql.fullname" . | quote }}
+                    key: "mysql-password"
+            volumeMounts:
               - name: mysqldump
-                persistentVolumeClaim:
-                  claimName: {{ required ".Values.borisBackup.pvcName is required!" .Values.borisBackup.pvcName | quote }}
+                mountPath: /mysqldump
+          volumes:
+            - name: mysqldump
+              persistentVolumeClaim:
+                claimName: {{ required ".Values.borisBackup.pvcName is required!" .Values.borisBackup.pvcName | quote }}
           restartPolicy: OnFailure
 {{- end -}}
