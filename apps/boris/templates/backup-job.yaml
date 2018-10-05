@@ -20,9 +20,9 @@ spec:
   jobTemplate:
     spec:
       template:
-        imagePullSecrets:
-          - name: {{ .Values.image.pullSecretName }}
         spec:
+          imagePullSecrets:
+            - name: {{ .Values.image.pullSecretName }}
           containers:
           - name:  mysqldump
             image: tnir/mysqlclient
