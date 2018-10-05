@@ -24,6 +24,10 @@ If release name contains chart name it will be used as a full name.
 {{ template "boris.fullname" . }}-migration-job
 {{- end -}}
 
+{{- define "boris.backupjobname" -}}
+{{ template "boris.fullname" . }}-backup-job
+{{- end -}}
+
 {{- define "boris.createsuperuserjobname" -}}
 {{ template "boris.fullname" . }}-createsuperuser-job
 {{- end -}}

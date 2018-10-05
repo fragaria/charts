@@ -91,6 +91,25 @@ questions:
         default: "default"
         label: TLS secret name
 
+  - variable: borisBackup.enabled
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "MySQL backups"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: borisBackup.schedule
+        type: string
+        required: true
+        default: "0 4 * * *"
+        label: "CRON schedule expression"
+      - variable: borisBackup.pvcName
+        type: string
+        required: true
+        label: "Existing PVC name"
+        description: "Backups only support existing PVCs."
+
   - variable: mysql.persistence.enabled
     type: boolean
     label: MySQL persistence enabled

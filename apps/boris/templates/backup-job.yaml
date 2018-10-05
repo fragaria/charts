@@ -1,0 +1,60 @@
+{{- if .Values.borisBackup.enabled -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "boris.backupjobname" . }}
+  labels:
+    app: {{ include "boris.name" . }}
+    jobname: backup
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  schedule: {{ required ".Values.borisBackup.schedule is required!" .Values.borisBackup.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        imagePullSecrets:
+          - name: {{ .Values.image.pullSecretName }}
+        spec:
+          containers:
+          - name:  mysqldump
+            image: tnir/mysqlclient
+            command:
+              - 'mysqldump --user=$DB_USER --password=$DB_PASS $DB_NAME | gzip > /mysqldump/{{ .Release.Name }}-${DB_NAME}-$(date +%Y%m%d%H%M%S).sql'
+            env:
+              - name: DB_NAME
+                valueFrom:
+                  configMapKeyRef:
+                    name: {{ template "boris.configmapname" . }}
+                    key: BORIS_DB_NAME
+              - name: DB_HOST
+                valueFrom:
+                  configMapKeyRef:
+                    name: {{ template "boris.configmapname" . }}
+                    key: BORIS_DB_HOST
+              - name: DB_USER
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ template "boris.configmapname" . }}
+                    key: BORIS_DB_USER
+              - name: DB_PASS
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ template "mysql.fullname" . }}
+                    key: mysql-password
+              volumeMounts:
+                - name: mysqldump
+                  mountPath: /mysqldump
+            volumes:
+              - name: mysqldump
+                persistentVolumeClaim:
+                  claimName: {{ required ".Values.borisBackup.pvcName is required!" .Values.borisBackup.pvcName | quote }}
+          restartPolicy: OnFailure
+{{- end -}}
