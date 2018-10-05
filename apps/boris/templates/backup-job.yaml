@@ -25,7 +25,7 @@ spec:
             - name: {{ .Values.image.pullSecretName }}
           containers:
           - name:  mysqldump
-            image: tnir/mysqlclient
+            image: schnitzler/mysqldump
             command:
               - 'sh'
               - '-c'
