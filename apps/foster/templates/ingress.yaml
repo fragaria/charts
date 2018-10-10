@@ -4,7 +4,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: {{ include "foster.fullname "}}
+  name: {{ include "foster.fullname" . }}
   labels:
     app: {{ include "foster.name" . }}
     chart: {{ include "foster.chart" . }}
