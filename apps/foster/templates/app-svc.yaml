@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "foster.fullname" . }}
+  labels:
+    app: {{ include "foster.name" . }}
+    chart: {{ include "foster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ required ".Values.service.port is required!" .Values.service.port }}
+      targetPort: {{ required ".Values.fosterPort is required!" .Values.fosterPort }}
+      protocol: TCP
+      name: http
+  selector:
+    app: {{ include "foster.name" . }}
+    release: {{ .Release.Name }}

@@ -1,0 +1,58 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: {{ template "proxy.fullname" . }}
+  labels:
+    app: {{ template "proxy.name" . }}
+    chart: {{ include "foster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "proxy.name" . }}
+      release: "{{ .Release.Name }}"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ include "proxy.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+      - name: {{ template "proxy.name" . }}
+        image: "nginx:1.15.5-alpine"
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        ports:
+          - name: http
+            containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /probe
+            port: http
+          initialDelaySeconds: 30
+          timeoutSeconds: 5
+          failureThreshold: 6
+        readinessProbe:
+          httpGet:
+            path: /probe
+            port: http
+          initialDelaySeconds: 5
+          timeoutSeconds: 3
+          periodSeconds: 5
+        volumeMounts:
+          - name: nginx-vhost
+            mountPath: /etc/nginx/conf.d
+          - name: foster-media
+            mountPath: /foster-media
+      volumes:
+        - name: nginx-vhost
+          configMap:
+            name: {{ template "proxy.fullname" . }}
+        - name: foster-media
+        {{- if .Values.fosterPersistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.fosterPersistence.existingClaim | default (include "foster.pvcname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end -}}

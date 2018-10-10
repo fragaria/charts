@@ -1,0 +1,37 @@
+{{- if .Values.ingress.enabled -}}
+{{- $fullNameApp := include "foster.fullname" . -}}
+{{- $fullNameProxy := include "proxy.fullname" . -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ include "foster.fullname "}}
+  labels:
+    app: {{ include "foster.name" . }}
+    chart: {{ include "foster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.ingress.annotations }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+{{- if .Values.ingress.createTls }}
+  tls:
+  {{- range .Values.ingress.hosts }}
+    - hosts:
+        - {{ .host | quote }}
+      secretName: {{ $fullNameApp }}-{{ .name }}-tls
+  {{- end }}
+{{- end }}
+  rules:
+  {{- range .Values.ingress.hosts }}
+    # All traffic is routed via nginx proxy.
+    - host: {{ .host | quote }}
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: {{ $fullNameProxy }}
+              servicePort: http
+  {{- end }}
+{{- end }}

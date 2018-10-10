@@ -1,0 +1,28 @@
+{{- if and .Values.fosterPersistence.enabled (not .Values.fosterPersistence.existingClaim) -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: {{ template "foster.pvcname" . }}
+  labels:
+    app: {{ template "foster.name" . }}
+    chart: {{ template "foster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+{{- with .Values.fosterPersistence.annotations  }}
+  annotations:
+{{ toYaml . | indent 4 }}
+{{- end }}
+spec:
+  accessModes:
+    - {{ .Values.fosterPersistence.accessMode | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.fosterPersistence.size | quote }}
+{{- if .Values.fosterPersistence.storageClass }}
+{{- if (eq "-" .Values.fosterPersistence.storageClass) }}
+  storageClassName: ""
+{{- else }}
+  storageClassName: "{{ .Values.fosterPersistence.storageClass }}"
+{{- end }}
+{{- end }}
+{{- end -}}

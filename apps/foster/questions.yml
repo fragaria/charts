@@ -1,0 +1,160 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: fosterAdminEmail
+    type: string
+    required: true
+    label: Email to administrator
+    default: admin@fragaria.cz
+    group: General
+  - variable: fosterSecretKey
+    type: string
+    required: true
+    label: App secret key
+    group: General
+  - variable: fosterDebug
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "General"
+    default: "false"
+  - variable: replicaCount
+    type: int
+    required: true
+    label: "Number of replicas"
+    group: "General"
+    default: 1
+  - variable: fosterWorkers
+    type: int
+    required: true
+    label: "Number of workers inside replica"
+    group: "General"
+    default: 1
+  - variable: fosterSentry.dsn
+    type: string
+    required: flase
+    label: "Sentry DSN"
+    group: "General"
+  - variable: image.pullSecretName
+    type: string
+    required: true
+    label: "Name of secret for pulling the images"
+    default: "fragaria-registry"
+    group: General
+  - variable: nameOverride
+    type: string
+    required: false
+    label: Name override
+    default: foster
+    group: General
+
+  - variable: fosterTransfersHost
+    type: string
+    label: Central point hostname
+    group: Transfers settings
+  - variable: fosterTransfersCode
+    type: string
+    label: Installation codename
+    group: Transfers settings
+
+  - variable: fosterCreateSuperUser
+    type: boolean
+    required: true
+    label: "Create superuser account?"
+    default: "false"
+    group: Superuser account bootstrap
+    show_subquestion_if: true
+    subquestions:
+      - variable: fosterSuperUserUsername
+        type: string
+        required: true
+        label: "Superuser username"
+        default: "admin"
+      - variable: fosterSuperUserEmail
+        type: string
+        required: true
+        label: "Superuser email"
+        default: "admin@fragaria.cz"
+      - variable: fosterSuperUserPassword
+        type: string
+        required: true
+        label: "Superuser password"
+
+  - variable: ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Ingress"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ingress.hosts[0].host
+        type: string
+        required: true
+        default: "foster.f-app.it"
+        label: Hostname
+      - variable: ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+      - variable: ingress.hosts[0].name
+        type: string
+        required: true
+        default: "default"
+        label: TLS secret name
+
+  - variable: fosterBackup.enabled
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "Database backups"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: fosterBackup.schedule
+        type: string
+        required: true
+        default: "0 4 * * *"
+        label: "CRON schedule expression"
+      - variable: fosterBackup.pvcName
+        type: string
+        required: true
+        label: "Existing PVC name"
+        description: "Backups only support existing PVCs."
+
+  - variable: postgresql.persistence.enabled
+    type: boolean
+    label: PostgreSQL persistence enabled
+    required: true
+    group: PostgreSQL settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: postgresql.persistence.size
+        default: "4Gi"
+        label: Volume size
+        type: string
+      - variable: postgresql.persistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+  - variable: postgresql.postgresUser
+    type: string
+    label: User name
+    default: "foster"
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresDatabase
+    type: string
+    label: Database name
+    default: "foster"
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresPassword
+    type: string
+    label: User password
+    description: "Please choose a strong password."
+    required: true
+    group: PostgreSQL settings

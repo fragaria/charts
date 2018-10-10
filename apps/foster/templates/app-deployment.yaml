@@ -1,0 +1,78 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "foster.fullname" . }}
+  labels:
+    app: {{ include "foster.name" . }}
+    chart: {{ include "foster.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "foster.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "foster.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          envFrom:
+            - configMapRef:
+                name: {{ template "foster.configmapname" . }}
+          env:
+            - name: FOSTER_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "postgresql.fullname" . }}
+                  key: postgres-password
+            - name: FOSTER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "foster.fullname" . }}
+                  key: foster-secret-key
+          ports:
+            - name: http
+              containerPort: {{ required ".Values.fosterPort is required!" .Values.fosterPort }}
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /login/
+              port: http
+          readinessProbe:
+            httpGet:
+              path: /login/
+              port: http
+          volumeMounts:
+            - name: media
+              mountPath: /media
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+      volumes:
+        - name: media
+        {{- if .Values.fosterPersistence.enabled }}
+          persistentVolumeClaim:
+            claimName: {{ .Values.fosterPersistence.existingClaim | default (include "foster.pvcname" .) }}
+        {{- else }}
+          emptyDir: {}
+        {{- end -}}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}

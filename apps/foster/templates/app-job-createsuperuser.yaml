@@ -1,0 +1,56 @@
+{{- define "foster.createsuperuserCommand" -}}
+python -c "import django; django.setup(); \
+from django.contrib.auth.management.commands.createsuperuser import get_user_model; \
+get_user_model().objects.create_superuser(username='{{ required ".Values.fosterSuperUserUsername is required!" .Values.fosterSuperUserUsername }}', email='{{ required ".Values.fosterSuperUserEmail is required!" .Values.fosterSuperUserEmail }}', password='{{ required ".Values.fosterSuperUserPassword is required!" .Values.fosterSuperUserPassword }}')"
+{{- end -}}
+{{- if .Values.fosterCreateSuperUser -}}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "foster.createsuperuserjobname" . }}
+  labels:
+    app: {{ include "foster.name" . }}
+    jobname: createsuperuser
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "0"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      containers:
+        - name: post-install-job
+          image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          # Sleep for few seconds so that PostgreSQL intializes
+          command: ['sh', '-c', {{ include "foster.createsuperuserCommand" . | quote }}]
+          envFrom:
+            - configMapRef:
+                name: {{ template "foster.configmapname" . }}
+          env:
+            - name: FOSTER_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "postgresql.fullname" . }}
+                  key: postgres-password
+            - name: FOSTER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "foster.fullname" . }}
+                  key: foster-secret-key
+      restartPolicy: Never
+  backoffLimit: 5
+{{- end -}}
