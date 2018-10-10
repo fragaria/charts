@@ -59,6 +59,23 @@ questions:
     label: Installation codename
     group: Transfers settings
 
+  - variable: fosterPersistence.enabled
+    type: boolean
+    label: Foster persistence enabled
+    required: true
+    group: Persistence settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: fosterPersistence.size
+        default: "4Gi"
+        label: Volume size
+        type: string
+      - variable: fosterPersistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+
   - variable: fosterCreateSuperUser
     type: boolean
     required: true
