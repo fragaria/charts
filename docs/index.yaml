@@ -380,14 +380,4 @@ entries:
     urls:
     - https://fragaria.github.io/charts/foster-0.1.1.tgz
     version: 0.1.1
-  - apiVersion: v1
-    appVersion: "1.0"
-    created: 2018-10-10T14:25:03.490405468+02:00
-    description: A Helm chart for Kubernetes to deploy Foster installation
-    digest: 820abff19f94578080027b1ac76780d67dda723e903f79cae8635daf17829f87
-    icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
-    name: foster
-    urls:
-    - https://fragaria.github.io/charts/foster-0.1.0.tgz
-    version: 0.1.0
 generated: 2018-10-10T14:25:03.386392535+02:00
