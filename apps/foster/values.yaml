@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: registry.rancher.f-app.it/foster
-  tag: 0.1.2
+  tag: 0.1.3
   pullPolicy: IfNotPresent
   pullSecretName: regcred
 
