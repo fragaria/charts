@@ -34,7 +34,7 @@ questions:
     default: 1
   - variable: fosterSentry.dsn
     type: string
-    required: flase
+    required: false
     label: "Sentry DSN"
     group: "General"
   - variable: image.pullSecretName
