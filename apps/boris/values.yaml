@@ -8,7 +8,7 @@ image:
   repository: docker-registry.f-app.it/boris
   tag: 0.4.2
   pullPolicy: IfNotPresent
-  pullSecretName: regcred
+  pullSecretName: fragaria-private
 
 nameOverride: ""
 fullnameOverride: ""

@@ -36,7 +36,7 @@ questions:
     type: string
     required: true
     label: "Name of secret for pulling the images"
-    default: "fragaria-registry"
+    default: "fragaria-private"
     group: General
   - variable: nameOverride
     type: string

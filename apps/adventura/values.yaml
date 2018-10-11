@@ -2,7 +2,7 @@
 global:
   nameOverride: ""
   fullnameOverride: ""
-  pullSecretName: regcred
+  pullSecretName: fragaria-private
 
 # Shared configuration
 clm:

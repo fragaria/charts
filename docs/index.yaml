@@ -3,7 +3,17 @@ entries:
   adventura:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-11T13:37:14.462292263+02:00
+    created: 2018-10-11T15:08:36.000021302+02:00
+    description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
+    digest: eccc679b4682727e012658477b175c7631399827d0d6ecb31b380ebd5cf4b98c
+    icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
+    name: adventura
+    urls:
+    - https://fragaria.github.io/charts/adventura-0.2.16.tgz
+    version: 0.2.16
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-11T15:08:35.996627005+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eb4eb6dd476b5cc756978f9195d06616a783cf2c3f30503f79ff4ce15c2f8484
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -14,7 +24,17 @@ entries:
   boris:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-11T13:37:14.526395829+02:00
+    created: 2018-10-11T15:08:36.004075114+02:00
+    description: A Helm chart for Kubernetes to deploy BorIS installation
+    digest: 50bb1b64db5b3352b3878105b681189067d77f77c6988806da56630266939dd9
+    icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
+    name: boris
+    urls:
+    - https://fragaria.github.io/charts/boris-0.4.9.tgz
+    version: 0.4.9
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-11T15:08:36.002982066+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a80910444ca39165db30210bdda00ba558afd23bec1a49179431a6b735f4199d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -25,7 +45,17 @@ entries:
   foster:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-11T13:37:14.539746946+02:00
+    created: 2018-10-11T15:08:36.006938706+02:00
+    description: A Helm chart for Kubernetes to deploy Foster installation
+    digest: 00b38fa697413ec2462b67ba28ec0b116646d60dc247f5635e2c8f05b584f9d3
+    icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
+    name: foster
+    urls:
+    - https://fragaria.github.io/charts/foster-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: 2018-10-11T15:08:36.005994665+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: c5229c72c0685f6e8859a417954d0cba42a8c3b4b4576eea247de4fe16813f61
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -33,4 +63,4 @@ entries:
     urls:
     - https://fragaria.github.io/charts/foster-0.1.8.tgz
     version: 0.1.8
-generated: 2018-10-11T13:37:14.426438463+02:00
+generated: 2018-10-11T15:08:35.990236708+02:00
