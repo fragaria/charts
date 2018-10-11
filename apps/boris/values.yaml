@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: registry.rancher.f-app.it/boris
+  repository: docker-registry.f-app.it/boris
   tag: 0.4.2
   pullPolicy: IfNotPresent
   pullSecretName: regcred

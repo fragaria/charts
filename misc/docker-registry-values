@@ -1,0 +1,15 @@
+Provide following answers to install docker registry using Rancher
+
+replicaCount=2
+persistence.enabled=true
+persistence.size=20Gi
+persistence.storageClass=nfs-client
+secrets.htpasswd=...
+ingress.enabled=true
+ingress.hosts[0]=docker-registry.f-app.it
+ingress.tls[0].secretName=docker-registry-tls
+ingress.tls[0].hosts[0]=docker-registry.f-app.it
+ingress.annotations."kubernetes\.io/ingress\.class"=nginx
+ingress.annotations."kubernetes\.io/tls-acme"=true
+ingress.annotations."nginx\.ingress\.kubernetes\.io/proxy-body-size"=0
+ingress.annotations."nginx\.org/client-max-body-size"=0
