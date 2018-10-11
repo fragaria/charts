@@ -106,3 +106,9 @@ postgresql:
     size: 4Gi
     annotations: {}
     resourcePolicy: ""
+
+  probes:
+    liveness:
+      initialDelay: 120
+    readiness:
+      initialDelay: 20
