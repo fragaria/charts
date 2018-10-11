@@ -144,3 +144,8 @@ questions:
     description: "Please choose a strong password."
     required: true
     group: MySQL settings
+  - variable: mysql.mysqlRootPassword
+    type: string
+    label: Root password
+    description: "Optional."
+    group: MySQL settings
