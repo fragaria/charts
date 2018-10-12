@@ -45,6 +45,31 @@ questions:
     default: boris
     group: General
 
+  - variable: resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 100m
+    group: Resources
+  - variable: resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 128Mi
+    group: Resources
+  - variable: resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 100m
+    group: Resources
+  - variable: resources.limits.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: Resources
+
   - variable: borisCreateSuperUser
     type: boolean
     required: true
@@ -148,4 +173,28 @@ questions:
     type: string
     label: Root password
     description: "Optional."
+    group: MySQL settings
+  - variable: mysql.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 100m
+    group: MySQL settings
+  - variable: mysql.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 128Mi
+    group: MySQL settings
+  - variable: mysql.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 100m
+    group: MySQL settings
+  - variable: mysql.resources.limits.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
     group: MySQL settings
