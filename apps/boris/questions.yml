@@ -61,7 +61,7 @@ questions:
     type: string
     required: true
     label: Limits CPU
-    default: 100m
+    default: 1000m
     group: Resources
   - variable: resources.limits.memory
     type: string
@@ -190,7 +190,7 @@ questions:
     type: string
     required: true
     label: Limits CPU
-    default: 500m
+    default: 1000m
     group: MySQL settings
   - variable: mysql.resources.limits.memory
     type: string
