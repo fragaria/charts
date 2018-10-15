@@ -61,6 +61,8 @@ borisSuperUserPassword: ""
 borisBackup:
   enabled: false
   schedule: "0 4 * * *"
+borisSentry:
+  dsn: ""
 
 mysql:
   ## Create a database user

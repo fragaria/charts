@@ -13,3 +13,4 @@ data:
   BORIS_DB_NAME: {{ required ".Values.mysql.mysqlDatabase is required!" .Values.mysql.mysqlDatabase | quote }}
   BORIS_DB_USER: {{ required ".Values.mysql.mysqlUser is required!" .Values.mysql.mysqlUser | quote }}
   BORIS_WORKERS: {{ required ".Values.borisWorkers is required!" .Values.borisWorkers | quote }}
+  BORIS_SENTRY_DSN: {{ .Values.borisSentry.dsn | quote }}

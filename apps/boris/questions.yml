@@ -36,6 +36,11 @@ questions:
     default: 1
     min: 1
     max: 4
+  - variable: borisSentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "General"
   - variable: image.pullSecretName
     type: string
     required: true
