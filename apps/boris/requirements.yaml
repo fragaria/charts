@@ -1,4 +1,6 @@
 dependencies:
 - name: mysql
-  repository: https://kubernetes-charts.storage.googleapis.com/
-  version: 0.10.1
+  repository: "file://subcharts/mysql"
+  version: ">= 0.0.1"
+  tags:
+    - db

@@ -199,6 +199,6 @@ questions:
   - variable: mysql.resources.limits.memory
     type: string
     required: true
-    label: Requests memory
+    label: Limits memory
     default: 256Mi
     group: MySQL settings
