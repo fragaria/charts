@@ -1,0 +1,158 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: fcpAdminEmail
+    type: string
+    required: true
+    label: Email to administrator
+    default: admin@fragaria.cz
+    group: General
+  - variable: fcpSecretKey
+    type: string
+    required: true
+    label: App secret key
+    group: General
+  - variable: fcpDebug
+    type: boolean
+    required: true
+    label: "Debug mode enabled?"
+    group: "General"
+    default: "false"
+  - variable: replicaCount
+    type: int
+    required: true
+    label: "Number of replicas"
+    group: "General"
+    default: 1
+  - variable: fcpWorkers
+    type: int
+    required: true
+    label: "Number of workers inside replica"
+    group: "General"
+    default: 1
+  - variable: fcpSentry.dsn
+    type: string
+    required: false
+    label: "Sentry DSN"
+    group: "General"
+  - variable: image.pullSecretName
+    type: string
+    required: true
+    label: "Name of secret for pulling the images"
+    default: "fragaria-registry"
+    group: General
+  - variable: nameOverride
+    type: string
+    required: false
+    label: Name override
+    default: fcp
+    group: General
+
+  - variable: fcpCreateSuperUser
+    type: boolean
+    required: true
+    label: "Create superuser account?"
+    default: "false"
+    group: Superuser account bootstrap
+    show_subquestion_if: true
+    subquestions:
+      - variable: fcpSuperUserUsername
+        type: string
+        required: true
+        label: "Superuser username"
+        default: "admin"
+      - variable: fcpSuperUserEmail
+        type: string
+        required: true
+        label: "Superuser email"
+        default: "admin@fragaria.cz"
+      - variable: fcpSuperUserPassword
+        type: string
+        required: true
+        label: "Superuser password"
+
+  - variable: ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "Ingress"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ingress.hosts[0].host
+        type: string
+        required: true
+        default: "fcp.f-app.it"
+        label: Hostname
+      - variable: ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+      - variable: ingress.hosts[0].name
+        type: string
+        required: true
+        default: "default"
+        label: TLS secret name
+
+  - variable: fcpBackup.enabled
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "Database backups"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: fcpBackup.schedule
+        type: string
+        required: true
+        default: "0 4 * * *"
+        label: "CRON schedule expression"
+      - variable: fcpBackup.pvcName
+        type: string
+        required: true
+        label: "Existing PVC name"
+        description: "Backups only support existing PVCs."
+
+  - variable: postgresql.persistence.enabled
+    type: boolean
+    label: PostgreSQL persistence enabled
+    required: true
+    group: PostgreSQL settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: postgresql.persistence.size
+        default: "2Gi"
+        label: Volume size
+        type: string
+      - variable: postgresql.persistence.storageClass
+        default: ""
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+      - variable: postgresql.persistence.resourcePolicy
+        default: "keep"
+        type: enum
+        label: Resource policy
+        options:
+          - "keep"
+          - ""
+  - variable: postgresql.postgresUser
+    type: string
+    label: User name
+    default: "fcp"
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresDatabase
+    type: string
+    label: Database name
+    default: "fcp"
+    required: true
+    group: PostgreSQL settings
+  - variable: postgresql.postgresPassword
+    type: string
+    label: User password
+    description: "Please choose a strong password."
+    required: true
+    group: PostgreSQL settings

@@ -1,0 +1,49 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "fcp.migrationjobname" . }}
+  labels:
+    app: {{ include "fcp.name" . }}
+    jobname: migration
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-weight": "-10"
+    "helm.sh/hook-delete-policy": hook-succeeded
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.image.pullSecretName }}
+      containers:
+        - name: main
+          image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          # Sleep for few seconds so that postgresql intializes
+          command: ['sh', '-c', 'django-admin.py migrate']
+          envFrom:
+            - configMapRef:
+                name: {{ template "fcp.configmapname" . }}
+          env:
+            - name: FOSTER_POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "postgresql.fullname" . }}
+                  key: postgres-password
+            - name: FOSTER_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: {{ template "fcp.fullname" . }}
+                  key: fcp-secret-key
+      restartPolicy: Never
+  backoffLimit: 5

@@ -1,0 +1,62 @@
+{{- if .Values.fcpBackup.enabled -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ include "fcp.backupjobname" . }}
+  labels:
+    app: {{ include "fcp.name" . }}
+    jobname: backup
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  schedule: {{ required ".Values.fcpBackup.schedule is required!" .Values.fcpBackup.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+            - name: {{ .Values.image.pullSecretName }}
+          containers:
+          - name:  pgdump
+            image: jbergknoff/postgresql-client
+            command:
+              - 'sh'
+              - '-c'
+              - 'pg_dump --host=$DB_HOST --username=$DB_USER --password=$DB_PASS --dbname=$DB_NAME | gzip > /pgdump/{{ .Release.Name }}-${DB_NAME}.sql.gz'
+            env:
+              - name: DB_NAME
+                valueFrom:
+                  configMapKeyRef:
+                    name: {{ include "fcp.configmapname" . | quote }}
+                    key: FOSTER_POSTGRES_DBNAME
+              - name: DB_HOST
+                valueFrom:
+                  configMapKeyRef:
+                    name: {{ include "fcp.configmapname" . | quote }}
+                    key: FOSTER_POSTGRES_HOST
+              - name: DB_USER
+                valueFrom:
+                  configMapKeyRef:
+                    name: {{ include "fcp.configmapname" . | quote }}
+                    key: FOSTER_POSTGRES_USER
+              - name: DB_PASS
+                valueFrom:
+                  secretKeyRef:
+                    name: {{ template "postgresql.fullname" . }}
+                    key: postgres-password
+            volumeMounts:
+              - name: pgdump
+                mountPath: /pgdump
+          volumes:
+            - name: pgdump
+              persistentVolumeClaim:
+                claimName: {{ required ".Values.fosterBackup.pvcName is required!" .Values.fosterBackup.pvcName | quote }}
+          restartPolicy: OnFailure
+{{- end -}}

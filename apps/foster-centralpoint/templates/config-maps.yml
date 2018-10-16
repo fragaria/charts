@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "fcp.configmapname" . }}
+data:
+  DJANGO_SETTINGS_MODULE: "fcp.settings"
+  FOSTER_INSTALLATION: {{ template "fcp.name" . }}
+  FOSTER_DEBUG: {{ if .Values.fcpDebug -}}"1"{{- else -}}"0"{{- end }}
+  FOSTER_ADMIN_EMAIL: {{ .Values.fcpAdminEmail }}
+  FOSTER_ALLOWED_HOSTS: {{ .Values.fcpAllowedHosts | quote }}
+  FOSTER_POSTGRES_HOST: {{ template "postgresql.fullname" . }}
+  FOSTER_POSTGRES_DBNAME: {{ required ".Values.postgresql.postgresDatabase is required!" .Values.postgresql.postgresDatabase | quote }}
+  FOSTER_POSTGRES_USER: {{ required ".Values.postgresql.postgresUser is required!" .Values.postgresql.postgresUser | quote }}
+  FOSTER_WORKERS: {{ required ".Values.fcpWorkers is required!" .Values.fcpWorkers | quote }}
+  FOSTER_SENTRY_DSN: {{ .Values.fcpSentry.dsn | quote }}
+  FOSTER_SECURE_COOKIE: {{ if and .Values.ingress.enabled  .Values.ingress.createTls -}}"1"{{- else -}}"0"{{- end }}
