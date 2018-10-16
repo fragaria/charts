@@ -1,9 +1,6 @@
 dependencies:
 - name: postgresql
-  repository: https://kubernetes-charts.storage.googleapis.com
-  version: 0.18.0
-- name: nginx
-  repository: https://charts.bitnami.com/bitnami
-  version: 1.0.1
-digest: sha256:3705e1e31fef18db597cf6716822a47bedd12971e7d6fa4db2b5b01a4139d28c
-generated: 2018-10-10T12:24:44.385251143+02:00
+  repository: file://../../dbs/postgresql
+  version: 0.1.0
+digest: sha256:766ee5e7d01f8ceced610a035497f90c3205e06d356e9f7506c0a42e84f39991
+generated: 2018-10-16T15:50:17.77362381+02:00

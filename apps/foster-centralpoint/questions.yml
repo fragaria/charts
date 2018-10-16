@@ -26,12 +26,16 @@ questions:
     label: "Number of replicas"
     group: "General"
     default: 1
+    min: 1
+    max: 10
   - variable: fcpWorkers
     type: int
     required: true
     label: "Number of workers inside replica"
     group: "General"
     default: 1
+    min: 1
+    max: 4
   - variable: fcpSentry.dsn
     type: string
     required: false
