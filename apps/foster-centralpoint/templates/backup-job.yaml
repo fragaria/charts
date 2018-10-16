@@ -57,6 +57,6 @@ spec:
           volumes:
             - name: pgdump
               persistentVolumeClaim:
-                claimName: {{ required ".Values.fosterBackup.pvcName is required!" .Values.fosterBackup.pvcName | quote }}
+                claimName: {{ required ".Values.fcpBackup.pvcName is required!" .Values.fcpBackup.pvcName | quote }}
           restartPolicy: OnFailure
 {{- end -}}
