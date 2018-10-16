@@ -1,6 +1,6 @@
 dependencies:
 - name: mysql
-  repository: "file://subcharts/mysql"
+  repository: "file://../../dbs/mysql"
   version: ">= 0.0.1"
   tags:
     - db
