@@ -3,6 +3,14 @@ categories:
 labels:
   io.rancher.certified: experimental
 questions:
+  - variable: fosterLang
+    type: enum
+    required: true
+    label: Installation language
+    default: cs
+    options:
+      - "cs"
+      - "sk"
   - variable: fosterAdminEmail
     type: string
     required: true

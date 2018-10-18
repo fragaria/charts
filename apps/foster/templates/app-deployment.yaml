@@ -47,10 +47,16 @@ spec:
             httpGet:
               path: /login/
               port: http
+            initialDelaySeconds: 35
+            timeoutSeconds: 20
+            failureThreshold: 10
           readinessProbe:
             httpGet:
               path: /login/
               port: http
+            initialDelaySeconds: 35
+            timeoutSeconds: 20
+            failureThreshold: 10
           volumeMounts:
             - name: media
               mountPath: /media
