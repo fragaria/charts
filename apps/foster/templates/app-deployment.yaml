@@ -67,12 +67,12 @@ spec:
           resources:
 {{ toYaml .Values.resources | indent 12 }}
       volumes:
-        {{- if .Values.fosterMountMigrationVolumes }}
         {{/* data for migration */}}
+        {{- if .Values.fosterMountMigrationVolumes }}
         - name: migration
           hostPath:
             path: /mnt/foster-migration
-        {{- end -}}
+        {{- end }}
         - name: media
         {{- if .Values.fosterPersistence.enabled }}
           persistentVolumeClaim:
