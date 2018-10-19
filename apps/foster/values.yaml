@@ -86,6 +86,8 @@ fosterPersistence:
   ##
   # storageClass: "-"
 
+fosterMountMigrationVolumes: false
+
 postgresql:
   postgresDatabase: foster
   postgresPassword: foster

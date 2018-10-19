@@ -61,6 +61,12 @@ questions:
     label: Name override
     default: foster
     group: General
+  - variable: fosterMountMigrationVolumes
+    type: boolean
+    required: false
+    label: Mount volumes for v2=>v3 data migration?
+    default: false
+    group: V3 migration
 
   - variable: fosterTransfersHost
     type: string
