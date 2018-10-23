@@ -16,6 +16,15 @@ imageTag: "9.6.2"
 ##
 # imagePullSecrets: myregistrykey
 
+extraVolumes: |
+  # - name: extras
+  #   emptyDir: {}
+
+extraVolumeMounts: |
+  # - name: extras
+  #   mountPath: /usr/share/extras
+  #   readOnly: true
+
 ## Create a database user
 ## Default: postgres
 # postgresUser:

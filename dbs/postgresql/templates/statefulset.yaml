@@ -126,6 +126,9 @@ spec:
           mountPath: /pg_hba
           readOnly: true
         {{- end }}
+        {{- if .Values.extraVolumeMounts }}
+{{ tpl .Values.extraVolumeMounts . | indent 8 }}
+        {{- end }}
 {{- if .Values.metrics.enabled }}
       - name: metrics
         image: "{{ .Values.metrics.image }}:{{ .Values.metrics.imageTag }}"
@@ -185,6 +188,9 @@ spec:
           items:
             - key: pg_hba.conf
               path: pg_hba.conf
+      {{- end }}
+      {{- if .Values.extraVolumes }}
+{{ tpl .Values.extraVolumes . | indent 6 }}
       {{- end }}
       {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
