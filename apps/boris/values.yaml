@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker-registry.f-app.it/boris
-  tag: 0.4.5
+  tag: 0.4.6
   pullPolicy: IfNotPresent
   pullSecretName: fragaria-private
 
@@ -51,6 +51,7 @@ affinity: {}
 borisPort: 8000
 borisDebug: false
 borisAdminEmail: "admin@fragaria.cz"
+borisEmailHost: ""
 borisWorkers: 1
 borisAllowedHosts: "*"
 borisSecretKey: ""

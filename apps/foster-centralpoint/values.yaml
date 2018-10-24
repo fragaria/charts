@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker-registry.f-app.it/fcp
-  tag: 0.1.2
+  tag: 0.1.3
   pullPolicy: IfNotPresent
   pullSecretName: fragaria-private
 
@@ -51,6 +51,7 @@ affinity: {}
 fcpPort: 8000
 fcpDebug: false
 fcpAdminEmail: "admin@fragaria.cz"
+fcpEmailHost: ""
 fcpWorkers: 1
 fcpAllowedHosts: "*"
 fcpSecretKey: ""

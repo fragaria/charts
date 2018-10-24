@@ -17,6 +17,12 @@ questions:
     label: Email to administrator
     default: admin@fragaria.cz
     group: General
+  - variable: fosterEmailHost
+    type: string
+    required: true
+    label: SMTP server hsot
+    default: postfix-relay.postfix-relay.svc.cluster.local
+    group: General
   - variable: fosterSecretKey
     type: string
     required: true

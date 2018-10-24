@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker-registry.f-app.it/foster
-  tag: 0.1.4
+  tag: 0.1.5
   pullPolicy: IfNotPresent
   pullSecretName: fragaria-private
 
@@ -52,6 +52,7 @@ fosterPort: 8000
 fosterDebug: false
 fosterLang: 'cs'
 fosterAdminEmail: "admin@fragaria.cz"
+fosterEmailHost: ""
 fosterWorkers: 1
 fosterAllowedHosts: "*"
 fosterSecretKey: ""

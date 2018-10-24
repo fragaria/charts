@@ -6,7 +6,8 @@ data:
   DJANGO_SETTINGS_MODULE: "boris.settings"
   BORIS_INSTALLATION: {{ template "boris.name" . }}
   BORIS_DEBUG: {{ if .Values.borisDebug -}}"1"{{- else -}}"0"{{- end }}
-  BORIS_ADMIN_EMAIL: {{ .Values.borisAdminEmail }}
+  BORIS_ADMIN_EMAIL: {{ .Values.borisAdminEmail | quote }}
+  BORIS_EMAIL_HOST: {{ .Values.borisEmailHost | quote }}
   BORIS_ALLOWED_HOSTS: {{ .Values.borisAllowedHosts | quote }}
   BORIS_DB_HOST: {{ template "mysql.fullname" . }}
   BORIS_DB_PORT: "3306"

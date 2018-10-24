@@ -9,6 +9,12 @@ questions:
     label: Email to administrator
     default: admin@fragaria.cz
     group: General
+  - variable: borisEmailHost
+    type: string
+    required: true
+    label: SMTP server hsot
+    default: postfix-relay.postfix-relay.svc.cluster.local
+    group: General
   - variable: borisSecretKey
     type: string
     required: true

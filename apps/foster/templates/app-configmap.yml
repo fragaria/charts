@@ -10,6 +10,7 @@ data:
   FOSTER_MEDIA_URL: {{ required ".Values.fosterMediaProxy.rootPath is required!" .Values.fosterMediaProxy.rootPath | quote }}
   FOSTER_SENDFILE_URL: {{ required ".Values.fosterMediaProxy.protectedPath is required!" .Values.fosterMediaProxy.protectedPath | quote }}
   FOSTER_ADMIN_EMAIL: {{ .Values.fosterAdminEmail | quote }}
+  FOSTER_EMAIL_HOST: {{ .Values.fosterEmailHost | quote }}
   FOSTER_LANG: {{ .Values.fosterLang | quote }}
   FOSTER_TRANSFERS_HOST: {{ .Values.fosterTransfersHost | quote }}
   FOSTER_TRANSFERS_CODE: {{ .Values.fosterTransfersCode | quote }}

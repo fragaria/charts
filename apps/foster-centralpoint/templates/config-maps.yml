@@ -6,7 +6,8 @@ data:
   DJANGO_SETTINGS_MODULE: "fcp.settings"
   FOSTER_INSTALLATION: {{ template "fcp.name" . }}
   FOSTER_DEBUG: {{ if .Values.fcpDebug -}}"1"{{- else -}}"0"{{- end }}
-  FOSTER_ADMIN_EMAIL: {{ .Values.fcpAdminEmail }}
+  FOSTER_ADMIN_EMAIL: {{ .Values.fcpAdminEmail | quote }}
+  FOSTER_EMAIL_HOST: {{ .Values.fcpEmailHost | quote }}
   FOSTER_ALLOWED_HOSTS: {{ .Values.fcpAllowedHosts | quote }}
   FOSTER_POSTGRES_HOST: {{ template "postgresql.fullname" . }}
   FOSTER_POSTGRES_DBNAME: {{ required ".Values.postgresql.postgresDatabase is required!" .Values.postgresql.postgresDatabase | quote }}
