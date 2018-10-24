@@ -1,5 +1,6 @@
 categories:
-- general
+  - mailing
+  - smtp
 labels:
   io.rancher.certified: experimental
 questions:
@@ -57,6 +58,7 @@ questions:
     label: TLS enabled
     group: TLS
     show_subquestion_if: true
+    subquestions:
       - variable: tls.securityLevel
         type: enum
         required: true
