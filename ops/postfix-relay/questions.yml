@@ -1,0 +1,102 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: replicaCount
+    type: int
+    required: true
+    label: "Number of replicas"
+    group: General
+    default: 1
+    min: 1
+    max: 10
+  - variable: host
+    type: string
+    required: true
+    label: Relay host
+    group: General
+  - variable: myHost
+    type: string
+    required: false
+    label: Sender hostname
+    description: Defaults to the release fullname
+    group: General
+  - variable: networks
+    type: string
+    required: false
+    label: Networks
+    description: The list of "trusted" remote SMTP clients that have more privileges than "strangers". Separate by commas. See http://www.postfix.org/postconf.5.html. Defaults to 10.0.0.0/8,127.0.0.0/8,172.17.0.0/16.
+    group: General
+  - variable: username
+    type: string
+    required: true
+    label: Relay auth username
+    group: General
+  - variable: password
+    type: string
+    required: true
+    label: Relay auth password
+    group: General
+  - variable: securityOptions
+    type: enum
+    required: false
+    label: Relay security options
+    group: General
+    default: noanonymous
+    options:
+      - noanonymous
+      - noplaintext
+      - nodictionary
+      - mutual_auth
+
+  - variable: tls.enabled
+    type: boolean
+    required: true
+    default: "true"
+    label: TLS enabled
+    group: TLS
+    show_subquestion_if: true
+      - variable: tls.securityLevel
+        type: enum
+        required: true
+        label: "Security level"
+        default: "encrypt"
+        options:
+          - "none"
+          - "encrypt"
+          - "verify"
+          - "secure"
+      - variable: tls.startTlsOffer
+        type: enum
+        required: true
+        label: "Security level"
+        default: "yes"
+        options:
+          - "yes"
+          - "no"
+
+  - variable: resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 100m
+    group: Resources
+  - variable: resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 64Mi
+    group: Resources
+  - variable: resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 200m
+    group: Resources
+  - variable: resources.limits.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 128Mi
+    group: Resources

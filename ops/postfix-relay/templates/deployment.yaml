@@ -1,0 +1,99 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ include "postfix-relay.fullname" . }}
+  labels:
+    app: {{ include "postfix-relay.name" . }}
+    chart: {{ include "postfix-relay.chart" . }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ include "postfix-relay.name" . }}
+      release: {{ .Release.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "postfix-relay.name" . }}
+        release: {{ .Release.Name }}
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: RELAY_HOST
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_HOST
+            - name: RELAY_MYHOSTNAME
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_MYHOSTNAME
+            - name: RELAY_SECURITY_OPTIONS
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_SECURITY_OPTIONS
+            - name: RELAY_TLS_ENABLED
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_TLS_ENABLED
+            - name: RELAY_TLS_SECURITY_LEVEL
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_TLS_SECURITY_LEVEL
+            - name: RELAY_TLS_STARTTLS_OFFER
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: RELAY_TLS_STARTTLS_OFFER
+            - name: RELAY_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: relay-username
+            - name: RELAY_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "postfix-relay.fullname" . }}
+                  key: relay-password
+          ports:
+            - name: smtp
+              containerPort: 25
+              protocol: TCP
+          livenessProbe:
+            failureThreshold: 2
+            initialDelaySeconds: 10
+            periodSeconds: 20
+            successThreshold: 1
+            timeoutSeconds: 1
+            tcpSocket:
+              port: 25
+          readinessProbe:
+            failureThreshold: 2
+            periodSeconds: 20
+            successThreshold: 1
+            tcpSocket:
+              port: 25
+            timeoutSeconds: 1
+          resources:
+{{ toYaml .Values.resources | indent 12 }}
+    {{- with .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.affinity }}
+      affinity:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+    {{- with .Values.tolerations }}
+      tolerations:
+{{ toYaml . | indent 8 }}
+    {{- end }}
