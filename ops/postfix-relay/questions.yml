@@ -17,6 +17,16 @@ questions:
     required: true
     label: Relay host
     group: General
+  - variable: username
+    type: string
+    required: true
+    label: Relay auth username
+    group: General
+  - variable: password
+    type: string
+    required: true
+    label: Relay auth password
+    group: General
   - variable: myHost
     type: string
     required: false
@@ -28,16 +38,6 @@ questions:
     required: false
     label: Networks
     description: The list of "trusted" remote SMTP clients that have more privileges than "strangers". Separate by commas. See http://www.postfix.org/postconf.5.html. Defaults to 10.0.0.0/8,127.0.0.0/8,172.17.0.0/16.
-    group: General
-  - variable: username
-    type: string
-    required: true
-    label: Relay auth username
-    group: General
-  - variable: password
-    type: string
-    required: true
-    label: Relay auth password
     group: General
   - variable: securityOptions
     type: enum
@@ -72,7 +72,7 @@ questions:
       - variable: tls.startTlsOffer
         type: enum
         required: true
-        label: "Security level"
+        label: "Start TLS offer"
         default: "yes"
         options:
           - "yes"

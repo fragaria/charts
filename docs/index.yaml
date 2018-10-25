@@ -3,7 +3,7 @@ entries:
   adventura:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.696706862+02:00
+    created: 2018-10-25T14:33:48.013564597+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eccc679b4682727e012658477b175c7631399827d0d6ecb31b380ebd5cf4b98c
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -13,7 +13,7 @@ entries:
     version: 0.2.16
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.692029158+02:00
+    created: 2018-10-25T14:33:48.008675272+02:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eb4eb6dd476b5cc756978f9195d06616a783cf2c3f30503f79ff4ce15c2f8484
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -24,7 +24,7 @@ entries:
   boris:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.731722165+02:00
+    created: 2018-10-25T14:33:48.050787291+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 00195eb742ee3b6a120e2eade49c2abfaba79f964088acd5cb97d820070d8bf5
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -34,7 +34,7 @@ entries:
     version: 0.6.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.729885072+02:00
+    created: 2018-10-25T14:33:48.049039889+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: de040dffd22e0d36112af6d00ac661c266f97dc51ca110180de874c6849cbfe9
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -44,7 +44,7 @@ entries:
     version: 0.6.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.728049797+02:00
+    created: 2018-10-25T14:33:48.04730398+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 8800ebf30f646c7077a102c4c35dada063562fb510634e954c760a5fef6d2503
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -54,7 +54,7 @@ entries:
     version: 0.6.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.726269229+02:00
+    created: 2018-10-25T14:33:48.045547654+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: b928c89e6071207442f37589e686c84fe77e86b3042a1f07685598b753d75587
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -64,7 +64,7 @@ entries:
     version: 0.6.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.723022459+02:00
+    created: 2018-10-25T14:33:48.043239856+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: aa9a510442162a777881ce7f42734edd69196416d10951c32cb2807a27bf7de2
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -74,7 +74,7 @@ entries:
     version: 0.5.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.720711328+02:00
+    created: 2018-10-25T14:33:48.040656133+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: dbffef0eefed9061c17c2c1013ad9dfe93163bf6937252a52b99fd1042675098
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -84,7 +84,7 @@ entries:
     version: 0.5.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.718376985+02:00
+    created: 2018-10-25T14:33:48.038197687+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 8f9225188560753c22e9aaec0ef077c58ec0abeb96e2bccd1b924cd225745d6d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -94,7 +94,7 @@ entries:
     version: 0.5.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.716075961+02:00
+    created: 2018-10-25T14:33:48.034953703+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: aad97b6591a53dcc08d98b7954ed1b063a9c1e6209e0208d01d49684d5462aec
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -104,7 +104,7 @@ entries:
     version: 0.5.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.71016467+02:00
+    created: 2018-10-25T14:33:48.027936821+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: effca19126df566ed9f9273233d1dfc1eb9aa6a2cec98a5486d84bc707cfe1f7
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -114,7 +114,7 @@ entries:
     version: 0.4.15
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.708209828+02:00
+    created: 2018-10-25T14:33:48.02569442+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 75551609d731d57205aac341be8f374b3de813f170320dbab20844257a4f3bea
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -124,7 +124,7 @@ entries:
     version: 0.4.14
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.705848616+02:00
+    created: 2018-10-25T14:33:48.023271158+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 85fafe194d7b030411e3219df550fe35dcc1165ee1bce196fdef1a1d058be995
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -134,7 +134,7 @@ entries:
     version: 0.4.13
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.704165533+02:00
+    created: 2018-10-25T14:33:48.020633133+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 3126c121ca8bc2d9d7938dacf9278308ad4e663a0df91bf918886ac8ed6db5c5
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -144,7 +144,7 @@ entries:
     version: 0.4.12
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.702298338+02:00
+    created: 2018-10-25T14:33:48.017827552+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 7e96de76c5e810ed743df87d695e43b25bca18cd289885775d9d03f5c9fc4e77
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -154,7 +154,7 @@ entries:
     version: 0.4.11
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.700392021+02:00
+    created: 2018-10-25T14:33:48.015470297+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a9650a60d76fb8517ea05ef459f8289a7430438efaf9b37d45e3b799ebdb8190
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -164,7 +164,7 @@ entries:
     version: 0.4.10
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.714081834+02:00
+    created: 2018-10-25T14:33:48.032419335+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 50bb1b64db5b3352b3878105b681189067d77f77c6988806da56630266939dd9
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -174,7 +174,7 @@ entries:
     version: 0.4.9
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.71183344+02:00
+    created: 2018-10-25T14:33:48.030457362+02:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a80910444ca39165db30210bdda00ba558afd23bec1a49179431a6b735f4199d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -185,7 +185,7 @@ entries:
   foster:
   - apiVersion: v1
     appVersion: 0.1.5
-    created: 2018-10-25T14:31:02.744274876+02:00
+    created: 2018-10-25T14:33:48.064999584+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: a33446293749210c76571d76068690ab1acb1aa1d8c29fa7a937187f2dd54814
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -195,7 +195,7 @@ entries:
     version: 0.1.16
   - apiVersion: v1
     appVersion: 0.1.4
-    created: 2018-10-25T14:31:02.742442236+02:00
+    created: 2018-10-25T14:33:48.063438185+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 9c02f588d36d1d792b0ec1f766ad04a1f11dfd00f26890550532ac509158cedb
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -205,7 +205,7 @@ entries:
     version: 0.1.15
   - apiVersion: v1
     appVersion: 0.1.4
-    created: 2018-10-25T14:31:02.74069382+02:00
+    created: 2018-10-25T14:33:48.061907249+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 374c11947389de63ade7e55c608dc22bd2d76a5d8f0aec13ac8f0d40d840f9be
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -215,7 +215,7 @@ entries:
     version: 0.1.14
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.739015702+02:00
+    created: 2018-10-25T14:33:48.060157416+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: f604a8f8b885e7d9230afd56982450060d5a37c10584a3c5108f6ef583621e5e
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -225,7 +225,7 @@ entries:
     version: 0.1.13
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.737219029+02:00
+    created: 2018-10-25T14:33:48.058400485+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 15a991e58be88274287a24663d37c9e67930c5a5d3d35b8fe40d83d77dce56e1
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -235,7 +235,7 @@ entries:
     version: 0.1.12
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.7350774+02:00
+    created: 2018-10-25T14:33:48.055450108+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: c365443850ef3a8e7a76d7f4828f3d0880ecf451188663f78d0cc7924601c516
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -245,7 +245,7 @@ entries:
     version: 0.1.11
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.733348292+02:00
+    created: 2018-10-25T14:33:48.053011824+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 095bd889a350a52061423a7d0a5034a7767e8fcbf04f0035e6bc144b589df99b
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -255,7 +255,7 @@ entries:
     version: 0.1.10
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.747686334+02:00
+    created: 2018-10-25T14:33:48.068640158+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 00b38fa697413ec2462b67ba28ec0b116646d60dc247f5635e2c8f05b584f9d3
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -265,7 +265,7 @@ entries:
     version: 0.1.9
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.746010878+02:00
+    created: 2018-10-25T14:33:48.06651886+02:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: c5229c72c0685f6e8859a417954d0cba42a8c3b4b4576eea247de4fe16813f61
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -276,7 +276,7 @@ entries:
   foster-centralpoint:
   - apiVersion: v1
     appVersion: 0.1.3
-    created: 2018-10-25T14:31:02.758315492+02:00
+    created: 2018-10-25T14:33:48.078758333+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 1732d0b5e6829643ee5f6373da716ba08ed1172d32bba447d2510c1f1e5f6f18
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -286,7 +286,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.756862827+02:00
+    created: 2018-10-25T14:33:48.077293909+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: fc5ad52579db299a292b7e310ea70a648a29e28fdcb39aff9b435fba0c214d71
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -296,7 +296,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.755078574+02:00
+    created: 2018-10-25T14:33:48.075707051+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: e2e9fc13a457faf33e8374eb83700b2f6fd51726b13dae968f15d60ef32d56bf
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -306,7 +306,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.752881254+02:00
+    created: 2018-10-25T14:33:48.073965423+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 4e371def847468a1111cca4c7dd97e0a0b899aae2409dcb05ac1b826b46ca729
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -316,7 +316,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.750948914+02:00
+    created: 2018-10-25T14:33:48.072371237+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 560a9425f4ef4c7fe4ee15a91a3ddd8a6d332d2f0850ce2a506145d7ce523eab
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -326,7 +326,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-25T14:31:02.749377079+02:00
+    created: 2018-10-25T14:33:48.070579235+02:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 15fe69a05b94c1492e32302e380fd315ba12e28682df8180639ba4f11484d852
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -337,7 +337,16 @@ entries:
   postfix-relay:
   - apiVersion: v1
     appVersion: 0.1.1
-    created: 2018-10-25T14:31:02.75926299+02:00
+    created: 2018-10-25T14:33:48.080422803+02:00
+    description: Simple postfix-based SMTP relay that runs in a Docker container.
+    digest: ad2e3bc0c7f73a21f7a96fc6e25de5221e622c2945fad8795c479e445885fdf0
+    name: postfix-relay
+    urls:
+    - https://fragaria.github.io/charts/postfix-relay-0.1.2.tgz
+    version: 0.1.2
+  - apiVersion: v1
+    appVersion: 0.1.1
+    created: 2018-10-25T14:33:48.080004151+02:00
     description: Simple postfix-based SMTP relay that runs in a Docker container.
     digest: 47528b0b374de6c07ba1df0a3180fa3535387d05a6a37f317ccee6e84d9bae60
     name: postfix-relay
@@ -346,11 +355,11 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 0.1.1
-    created: 2018-10-25T14:31:02.758945149+02:00
+    created: 2018-10-25T14:33:48.079391274+02:00
     description: Simple postfix-based SMTP relay that runs in a Docker container.
     digest: 6acb92491b7f82491798dbc6e73abc2c2e28580c3656322d9a1aa875bacabf61
     name: postfix-relay
     urls:
     - https://fragaria.github.io/charts/postfix-relay-0.1.0.tgz
     version: 0.1.0
-generated: 2018-10-25T14:31:02.686501611+02:00
+generated: 2018-10-25T14:33:47.997862541+02:00
