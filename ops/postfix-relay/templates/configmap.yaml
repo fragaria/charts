@@ -9,6 +9,6 @@ data:
   RELAY_MYHOSTNAME: {{ $myHostName | quote }}
   RELAY_SECURITY_OPTIONS: {{ .Values.securityOptions | quote }}
   RELAY_NETWORKS: {{ .Values.networks | quote }}
-  RELAY_TLS_ENABLED: {{ .Values.tls.enabled | quote }}
+  RELAY_TLS_ENABLED: {{ if .Values.tls.enabled -}}"yes"{{- else -}}"no"{{- end }}
   RELAY_TLS_SECURITY_LEVEL: {{ .Values.tls.securityLevel | quote }}
   RELAY_TLS_STARTTLS_OFFER: {{ .Values.tls.startTlsOffer | quote }}
