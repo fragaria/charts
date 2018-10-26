@@ -29,7 +29,7 @@ spec:
             command:
               - 'sh'
               - '-c'
-              - 'pg_dump --host=$DB_HOST --username=$DB_USER --password=$DB_PASS --dbname=$DB_NAME | gzip > /pgdump/{{ .Release.Name }}-${DB_NAME}-$(date +%Y%m%d%H%M%S).sql.gz'
+              - 'pg_dump --host=$DB_HOST --username=$DB_USER --password=$DB_PASS --dbname=$DB_NAME --clean --no-owner | gzip > /pgdump/{{ .Release.Name }}-${DB_NAME}.sql.gz'
             env:
               - name: DB_NAME
                 valueFrom:
