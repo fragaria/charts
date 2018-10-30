@@ -25,6 +25,25 @@ questions:
     default: "fragaria-private"
     group: General
 
+  - variable: backups.enabled
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "Database backups"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: backups.schedule
+        type: string
+        required: true
+        default: "0 4 * * *"
+        label: "CRON schedule expression"
+      - variable: backups.pvcName
+        type: string
+        required: true
+        label: "Existing PVC name"
+        description: "Backups only support existing PVCs."
+
   - variable: tags.advwebsite
     type: boolean
     required: true
@@ -73,6 +92,41 @@ questions:
     type: string
     required: false
     label: "Sentry DSN"
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+  - variable: advweb.cloudfrontDomain
+    type: string
+    required: false
+    default: 'media.adventura.cz'
+    label: "AWS Cloudfront custom domain"
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+  - variable: advweb.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+  - variable: advweb.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+  - variable: advweb.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Adventura website"
+    show_if: "tags.advwebsite=true"
+  - variable: advweb.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
     group: "Adventura website"
     show_if: "tags.advwebsite=true"
 
@@ -126,6 +180,41 @@ questions:
     label: "Sentry DSN"
     group: "Chinatours website"
     show_if: "tags.chtwebsite=true"
+  - variable: chtweb.cloudfrontDomain
+    type: string
+    required: false
+    default: 'media.chinatours.cz'
+    label: "AWS Cloudfront custom domain"
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+  - variable: chtweb.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+  - variable: chtweb.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+  - variable: chtweb.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
+  - variable: chtweb.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
+    group: "Chinatours website"
+    show_if: "tags.chtwebsite=true"
 
   - variable: tags.ttwebsite
     type: boolean
@@ -175,6 +264,41 @@ questions:
     type: string
     required: false
     label: "Sentry DSN"
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+  - variable: ttweb.cloudfrontDomain
+    type: string
+    required: false
+    default: 'media.treetop.cz'
+    label: "AWS Cloudfront custom domain"
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+  - variable: ttweb.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+  - variable: ttweb.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+  - variable: ttweb.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Treetop website"
+    show_if: "tags.ttwebsite=true"
+  - variable: ttweb.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
     group: "Treetop website"
     show_if: "tags.ttwebsite=true"
 
@@ -236,6 +360,34 @@ questions:
     label: "Sentry DSN"
     group: "Adventura ZANET"
     show_if: "tags.advzanet=true"
+  - variable: advzanet.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+  - variable: advzanet.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+  - variable: advzanet.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
+  - variable: advzanet.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
+    group: "Adventura ZANET"
+    show_if: "tags.advzanet=true"
 
   - variable: tags.chtzanet
     type: boolean
@@ -293,6 +445,34 @@ questions:
     type: string
     required: false
     label: "Sentry DSN"
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+  - variable: chtzanet.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+  - variable: chtzanet.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+  - variable: chtzanet.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Chinatours ZANET"
+    show_if: "tags.chtzanet=true"
+  - variable: chtzanet.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
     group: "Chinatours ZANET"
     show_if: "tags.chtzanet=true"
 
@@ -354,6 +534,34 @@ questions:
     label: "Sentry DSN"
     group: "Treetop ZANET"
     show_if: "tags.ttzanet=true"
+  - variable: ttzanet.resources.requests.cpu
+    type: string
+    required: true
+    label: Requests CPU
+    default: 250m
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+  - variable: ttzanet.resources.requests.memory
+    type: string
+    required: true
+    label: Requests memory
+    default: 256Mi
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+  - variable: ttzanet.resources.limits.cpu
+    type: string
+    required: true
+    label: Limits CPU
+    default: 1000m
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
+  - variable: ttzanet.resources.limits.memory
+    type: string
+    required: true
+    label: Limits memory
+    default: 512Mi
+    group: "Treetop ZANET"
+    show_if: "tags.ttzanet=true"
 
   - variable: tags.celery
     type: boolean
@@ -377,7 +585,47 @@ questions:
         min: 1
         required: true
         label: "Number of workers"
-        default: 1
+        default: 2
+      - variable: celeryb.resources.requests.cpu
+        type: string
+        required: true
+        label: Beat requests CPU
+        default: 100m
+      - variable: celeryb.resources.requests.memory
+        type: string
+        required: true
+        label: Beat requests memory
+        default: 128Mi
+      - variable: celeryb.resources.limits.cpu
+        type: string
+        required: true
+        label: Beat limits CPU
+        default: 300m
+      - variable: celeryb.resources.limits.memory
+        type: string
+        required: true
+        label: Beat limits memory
+        default: 256Mi
+      - variable: celeryw.resources.requests.cpu
+        type: string
+        required: true
+        label: Worker requests CPU
+        default: 200m
+      - variable: celeryw.resources.requests.memory
+        type: string
+        required: true
+        label: Worker requests memory
+        default: 256Mi
+      - variable: celeryw.resources.limits.cpu
+        type: string
+        required: true
+        label: Worker limits CPU
+        default: 1000m
+      - variable: celeryw.resources.limits.memory
+        type: string
+        required: true
+        label: Worker limits memory
+        default: 512Mi
 
   - variable: tags.search
     type: boolean
@@ -392,6 +640,26 @@ questions:
         min: 1
         label: "Number of replicas"
         default: 1
+      - variable: elasticsearch.resources.requests.cpu
+        type: string
+        required: true
+        label: Requests CPU
+        default: 500m
+      - variable: elasticsearch.resources.requests.memory
+        type: string
+        required: true
+        label: Requests memory
+        default: 256Mi
+      - variable: elasticsearch.resources.limits.cpu
+        type: string
+        required: true
+        label: Limits CPU
+        default: 2000m
+      - variable: elasticsearch.resources.limits.memory
+        type: string
+        required: true
+        label: Limits memory
+        default: 1024Mi
 
   - variable: clm.adv.host
     default: "http://apitest.adventura.cz"
@@ -470,13 +738,6 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: StorageClass to use for persisting the data
-      - variable: postgresql.persistence.resourcePolicy
-        default: "keep"
-        type: enum
-        label: Resource policy
-        options:
-          - "keep"
-          - ""
   - variable: postgresql.postgresUser
     type: string
     label: User name
@@ -512,5 +773,29 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: StorageClass to use for persisting the data
+    - variable: redis.master.requests.cpu
+      type: string
+      required: true
+      group: Redis settings
+      label: Requests CPU
+      default: 100m
+    - variable: redis.master.resources.requests.memory
+      type: string
+      required: true
+      group: Redis settings
+      label: Requests memory
+      default: 384Mi
+    - variable: redis.master.resources.limits.cpu
+      type: string
+      required: true
+      group: Redis settings
+      label: Limits CPU
+      default: 1000m
+    - variable: redis.master.resources.limits.memory
+      type: string
+      required: true
+      group: Redis settings
+      label: Limits memory
+      default: 2048Mi
 
 

@@ -2,11 +2,6 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-image:
-  repository: docker-registry.f-app.it/adv
-  tag: 0.1.4
-  pullPolicy: IfNotPresent
-
 nameOverride: ""
 fullnameOverride: ""
 
@@ -19,12 +14,12 @@ resources:
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-   cpu: 100m
-   memory: 256Mi
   requests:
-   cpu: 100m
-   memory: 128Mi
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 1000m
+    memory: 512Mi
 
 nodeSelector: {}
 

@@ -27,8 +27,8 @@ spec:
         - name: {{ .Values.global.pullSecretName }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.global.image.repository }}:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
           envFrom:
             - configMapRef:
                 name: {{ include "adventura.configmapname" . | quote }}
@@ -49,6 +49,10 @@ spec:
               value: {{ toJson .Values.managers | quote }}
             - name: ADV_WEB_ROOT_URL
               value: {{ (index .Values.ingress.hosts 0).host | quote }}
+            {{ if .Values.cloudfrontDomain -}}
+            - name: ADV_AWS_PUBLIC_S3_CUSTOM_DOMAIN
+              value: {{ .Values.cloudfrontDomain | quote }}
+            {{- end }}
             - name: DJANGO_SETTINGS_MODULE
               value: {{ .Values.settingsModule | quote }}
             {{ if .Values.sentry.dsn -}}

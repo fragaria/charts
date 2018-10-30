@@ -1,7 +1,7 @@
 dependencies:
 - name: postgresql
-  repository: "https://kubernetes-charts.storage.googleapis.com"
-  version: "0.18.0"
+  repository: "file://../../dbs/postgresql"
+  version: ">= 0.0.1"
   tags:
     - core
     - services

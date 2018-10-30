@@ -181,13 +181,6 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: StorageClass to use for persisting the data
-      - variable: postgresql.persistence.resourcePolicy
-        default: "keep"
-        type: enum
-        label: Resource policy
-        options:
-          - "keep"
-          - ""
   - variable: postgresql.postgresUser
     type: string
     label: User name

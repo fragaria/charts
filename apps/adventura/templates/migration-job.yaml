@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "adventura.migrationjobname" . }}
+  labels:
+    app: {{ include "adventura.name" . }}
+    jobname: migration
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+  annotations:
+    # This is what defines this resource as a hook. Without this line, the
+    # job is considered part of the release.
+    "helm.sh/hook": post-upgrade
+    "helm.sh/hook-weight": "-10"
+    "helm.sh/hook-delete-policy": before-hook-creation
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.global.pullSecretName }}
+      containers:
+        - name: main
+          image: "{{ .Values.global.image.repository }}:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
+          # Sleep for few seconds so that MySQL intializes
+          command: ['sh', '-c', 'django-admin migrate --settings={{- .Values.advweb.settingsModule -}}']
+          envFrom:
+            - configMapRef:
+                name: {{ template "adventura.configmapname" . }}
+            - secretRef:
+                name: {{ template "adventura.secretname" . }}
+      restartPolicy: Never
+  backoffLimit: 5

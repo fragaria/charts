@@ -11,13 +11,14 @@ data:
   ADV_CLM_API_ADV_HOST: {{ required ".Values.clm.adv.host is required!" .Values.clm.adv.host | quote }}
   ADV_CLM_API_CHT_HOST: {{ required ".Values.clm.cht.host is required!" .Values.clm.cht.host | quote }}
   ADV_DEFAULT_FROM_EMAIL: {{ required ".Values.defaultFromEmail is required!" .Values.defaultFromEmail | quote }}
+  ADV_EMAIL_BACKEND: {{ .Values.emailBackend | quote }}
   ADV_CONSTANCE_BACKEND: {{ required ".Values.constanceBackend is required!" .Values.constanceBackend | quote }}
   ELASTICSEARCH_HOST: {{ template "adv-elasticsearch.fullname" . }}
   REDIS_HOST: {{ template "redis.fullname" . }}-master
   DB_HOST: {{ template "postgresql.fullname" . }}
   DB_NAME: {{ required ".Values.postgresql.postgresDatabase is required!" .Values.postgresql.postgresDatabase }}
   DB_USER: {{ required ".Values.postgresql.postgresUser is required!" .Values.postgresql.postgresUser }}
-  ADV_AWS_ENABLED: {{ required ".Values.aws.enabled is required!" .Values.aws.enabled | quote }}
+  ADV_AWS_ENABLED: {{ if .Values.aws.enabled }}"1"{{ else }}"0"{{ end }}
   {{ if .Values.aws.s3Host }}
   ADV_AWS_S3_HOST: {{ .Values.aws.s3Host | quote }}
   {{ end }}

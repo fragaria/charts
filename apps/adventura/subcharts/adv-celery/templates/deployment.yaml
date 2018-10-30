@@ -27,8 +27,8 @@ spec:
         - name: {{ .Values.global.pullSecretName }}
       containers:
         - name: {{ .Chart.Name }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
-          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          image: "{{ .Values.global.image.repository }}:{{ .Values.global.image.tag }}"
+          imagePullPolicy: {{ .Values.global.image.pullPolicy }}
           command: ["celery-runner"]
           args: ['{{ required ".Values.mode is required!" .Values.mode }}']
           envFrom:

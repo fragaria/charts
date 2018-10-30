@@ -3,6 +3,12 @@ global:
   nameOverride: ""
   fullnameOverride: ""
   pullSecretName: fragaria-private
+  pullPolicy: IfNotPresent
+
+  image:
+    repository: docker-registry.f-app.it/adv
+    tag: 0.2.1
+    pullPolicy: IfNotPresent
 
 # Shared configuration
 clm:
@@ -14,6 +20,7 @@ clm:
     secret: ""
 
 defaultFromEmail: ""
+emailBackend: 'postageapp.backends.PostageAppEmailBackend'
 constanceBackend: "constance.backends.redisd.RedisBackend"
 
 secret: ""
@@ -32,6 +39,11 @@ disqus:
   apiKey: ""
   apiSecret: ""
 
+backups:
+  enabled: false
+  schedule: "0 4 * * *"
+  # pvcName:
+
 postgresql:
   peristence:
     size: 8Gi
@@ -41,6 +53,10 @@ postgresql:
   postgresUser: adv
 
 redis:
+  # We're fine with master-only setup
+  cluster:
+    enabled: false
+
   usePassword: false
 
   master:
@@ -60,6 +76,7 @@ elasticsearch: {}
 
 advweb:
   settingsModule: adv.sites.advweb
+  cloudfrontDomain: media.adventura.cz
 
   ingress:
     enabled: true
@@ -71,6 +88,7 @@ advweb:
 
 chtweb:
   settingsModule: adv.sites.chtweb
+  cloudfrontDomain: media.chinatours.cz
 
   ingress:
     enabled: true
@@ -82,6 +100,7 @@ chtweb:
 
 ttweb:
   settingsModule: adv.sites.ttweb
+  cloudfrontDomain: media.treetop.cz
 
   ingress:
     enabled: true

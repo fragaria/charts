@@ -28,6 +28,18 @@ If release name contains chart name it will be used as a full name.
 {{ .Release.Name | trunc 40 | trimSuffix "-" }}-config
 {{- end -}}
 
+{{- define "adventura.migrationjobname" -}}
+{{ .Release.Name | trunc 40 | trimSuffix "-" }}-migration-job
+{{- end -}}
+
+{{- define "adventura.dbinitjob" -}}
+{{ .Release.Name | trunc 40 | trimSuffix "-" }}-db-init-job
+{{- end -}}
+
+{{- define "adventura.dbbackupjob" -}}
+{{ .Release.Name | trunc 40 | trimSuffix "-" }}-db-backup-job
+{{- end -}}
+
 {{- define "adventura.secretname" -}}
 {{ .Release.Name | trunc 40 | trimSuffix "-" }}-secret
 {{- end -}}
@@ -42,6 +54,8 @@ Create chart name and version as used by the chart label.
 {{- define "adv-elasticsearch.fullname" -}}
 {{- printf "%s-%s" .Release.Name "adv-elasticsearch" | trunc 63 | trimSuffix "-" -}}
 {{- end -}}
+
+{{- define "postgresql.name" -}}postgresql{{- end -}}
 
 {{- define "postgresql.fullname" -}}
 {{- printf "%s-%s" .Release.Name "postgresql" | trunc 63 | trimSuffix "-" -}}
