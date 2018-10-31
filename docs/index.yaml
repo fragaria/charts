@@ -13,16 +13,6 @@ entries:
     version: 0.3.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2018-10-31T15:24:40.744162157+01:00
-    description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
-    digest: f59e88864352289befd13dfa0be2b74f12b4e6d66fff6eb01416517b202ac693
-    icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
-    name: adventura
-    urls:
-    - https://fragaria.github.io/charts/adventura-0.3.0.tgz
-    version: 0.3.0
-  - apiVersion: v1
-    appVersion: "1.0"
     created: 2018-10-31T15:24:40.739303465+01:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eccc679b4682727e012658477b175c7631399827d0d6ecb31b380ebd5cf4b98c
