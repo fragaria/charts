@@ -32,6 +32,11 @@ questions:
         type: string
         required: true
         label: "User email"
+      - variable: user.password
+        type: string
+        label: User password
+        description: "Please choose a strong password."
+        required: true
 
   - variable: web.replicacount
     type: int
@@ -141,6 +146,12 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: StorageClass to use for persisting the data
+  - variable: postgresql.postgresPassword
+    type: string
+    label: User password
+    description: "Please choose a strong password."
+    required: true
+    group: PostgreSQL settings
 
   - variable: redis.master.persistence.enabled
     type: boolean
