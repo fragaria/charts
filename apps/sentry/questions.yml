@@ -127,6 +127,7 @@ questions:
   - variable: postgresql.persistence.enabled
     type: boolean
     label: PostgreSQL persistence enabled
+    default: "true"
     required: true
     group: PostgreSQL settings
     show_subquestion_if: true
@@ -145,6 +146,7 @@ questions:
     type: boolean
     label: Redis persistence enabled
     required: true
+    default: "true"
     group: Redis settings
   - variable: redis.master.resources.requests.cpu
     type: string
