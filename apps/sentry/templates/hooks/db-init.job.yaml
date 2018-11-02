@@ -26,6 +26,12 @@ spec:
       imagePullSecrets:
 {{ toYaml .Values.image.imagePullSecrets | indent 8 }}
       {{- end }}
+      initContainers:
+        # Wait for database to be ready before attempting the migration.
+        - name: {{ printf "%s-wait-for-database" .Chart.Name }}
+          image: "groundnuty/k8s-wait-for:v1.1"
+          imagePullPolicy: Always
+          command: ["sh", '-c', 'wait_for.sh pod -lapp=postgresql']
       containers:
       - name: db-init-job
         image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
