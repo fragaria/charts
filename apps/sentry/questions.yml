@@ -1,0 +1,170 @@
+categories:
+- monitoring
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: ingress.hostname
+    type: string
+    required: true
+    label: Hostname
+    group: General
+  - variable: email.from_address
+    type: string
+    required: true
+    label: Sender e-mail address
+    default: sentry@fragaria.cz
+    group: General
+  - variable: email.host
+    type: string
+    required: true
+    label: SMTP host
+    default: postfix-relay.postfix-relay.svc.cluster.local
+    group: General
+  - variable: user.create
+    type: boolean
+    required: true
+    label: Create user account?
+    default: "true"
+    group: General
+    show_subquestion_if: true
+    subquestions:
+      - variable: user.email
+        type: string
+        required: true
+        label: "User email"
+
+  - variable: web.replicacount
+    type: int
+    required: true
+    label: Replicas
+    min: 1
+    default: 2
+    group: Web
+  - variable: web.resources.requests.cpu
+    type: string
+    required: true
+    group: Web
+    label: Requests CPU
+    default: 200m
+  - variable: web.resources.requests.memory
+    type: string
+    required: true
+    group: Web
+    label: Requests memory
+    default: 256Mi
+  - variable: web.resources.limits.cpu
+    type: string
+    required: true
+    group: Web
+    label: Limits CPU
+    default: 500m
+  - variable: web.resources.limits.memory
+    type: string
+    required: true
+    group: Web
+    label: Limits memory
+    default: 512Mi
+
+  - variable: worker.replicacount
+    type: int
+    required: true
+    label: Replicas
+    min: 1
+    default: 2
+    group: Workers
+  - variable: worker.resources.requests.cpu
+    type: string
+    required: true
+    group: Workers
+    label: Requests CPU
+    default: 200m
+  - variable: worker.resources.requests.memory
+    type: string
+    required: true
+    group: Workers
+    label: Requests memory
+    default: 256Mi
+  - variable: worker.resources.limits.cpu
+    type: string
+    required: true
+    group: Workers
+    label: Limits CPU
+    default: 500m
+  - variable: worker.resources.limits.memory
+    type: string
+    required: true
+    group: Workers
+    label: Limits memory
+    default: 512Mi
+
+  - variable: worker.resources.requests.cpu
+    type: string
+    required: true
+    group: CRON
+    label: Requests CPU
+    default: 100m
+  - variable: worker.resources.requests.memory
+    type: string
+    required: true
+    group: CRON
+    label: Requests memory
+    default: 128Mi
+  - variable: worker.resources.limits.cpu
+    type: string
+    required: true
+    group: CRON
+    label: Limits CPU
+    default: 200m
+  - variable: worker.resources.limits.memory
+    type: string
+    required: true
+    group: CRON
+    label: Limits memory
+    default: 196Mi
+
+  - variable: postgresql.persistence.enabled
+    type: boolean
+    label: PostgreSQL persistence enabled
+    required: true
+    group: PostgreSQL settings
+    show_subquestion_if: true
+    subquestions:
+      - variable: postgresql.persistence.size
+        default: "8Gi"
+        label: Volume size
+        type: string
+      - variable: postgresql.persistence.storageClass
+        default: "local-storage"
+        description: "If undefined or null, uses the default StorageClass. Default to null"
+        type: storageclass
+        label: StorageClass to use for persisting the data
+
+  - variable: redis.master.persistence.enabled
+    type: boolean
+    label: Redis persistence enabled
+    required: true
+    group: Redis settings
+  - variable: redis.master.resources.requests.cpu
+    type: string
+    required: true
+    group: Redis settings
+    label: Requests CPU
+    default: 200m
+  - variable: redis.master.resources.requests.memory
+    type: string
+    required: true
+    group: Redis settings
+    label: Requests memory
+    default: 384Mi
+  - variable: redis.master.resources.limits.cpu
+    type: string
+    required: true
+    group: Redis settings
+    label: Limits CPU
+    default: 1000m
+  - variable: redis.master.resources.limits.memory
+    type: string
+    required: true
+    group: Redis settings
+    label: Limits memory
+    default: 1024Mi

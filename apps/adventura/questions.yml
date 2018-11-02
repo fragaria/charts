@@ -773,29 +773,30 @@ questions:
         description: "If undefined or null, uses the default StorageClass. Default to null"
         type: storageclass
         label: StorageClass to use for persisting the data
-      - variable: redis.master.requests.cpu
-        type: string
-        required: true
-        group: Redis settings
-        label: Requests CPU
-        default: 100m
-      - variable: redis.master.resources.requests.memory
-        type: string
-        required: true
-        group: Redis settings
-        label: Requests memory
-        default: 384Mi
-      - variable: redis.master.resources.limits.cpu
-        type: string
-        required: true
-        group: Redis settings
-        label: Limits CPU
-        default: 1000m
-      - variable: redis.master.resources.limits.memory
-        type: string
-        required: true
-        group: Redis settings
-        label: Limits memory
-        default: 2048Mi
+
+  - variable: redis.master.resources.requests.cpu
+    type: string
+    required: true
+    group: Redis settings
+    label: Requests CPU
+    default: 100m
+  - variable: redis.master.resources.requests.memory
+    type: string
+    required: true
+    group: Redis settings
+    label: Requests memory
+    default: 384Mi
+  - variable: redis.master.resources.limits.cpu
+    type: string
+    required: true
+    group: Redis settings
+    label: Limits CPU
+    default: 1000m
+  - variable: redis.master.resources.limits.memory
+    type: string
+    required: true
+    group: Redis settings
+    label: Limits memory
+    default: 2048Mi
 
 

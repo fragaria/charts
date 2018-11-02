@@ -1,0 +1,13 @@
+dependencies:
+- name: postgresql
+  repository: "file://../../dbs/postgresql"
+  version: ">= 0.0.1"
+  tags:
+    - core
+    - services
+- name: redis
+  repository: "https://kubernetes-charts.storage.googleapis.com"
+  version: "3.10.0"
+  tags:
+    - core
+    - services
