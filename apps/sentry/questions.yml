@@ -38,6 +38,7 @@ questions:
     required: true
     label: Replicas
     min: 1
+    max: 10
     default: 2
     group: Web
   - variable: web.resources.requests.cpu
@@ -70,6 +71,7 @@ questions:
     required: true
     label: Replicas
     min: 1
+    max: 10
     default: 2
     group: Workers
   - variable: worker.resources.requests.cpu
