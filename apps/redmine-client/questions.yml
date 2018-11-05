@@ -1,0 +1,42 @@
+categories:
+- general
+labels:
+  io.rancher.certified: experimental
+questions:
+  - variable: redmineHost
+    type: string
+    required: true
+    label: "Redmine host"
+    group: "General"
+
+  - variable: replicaCount
+    type: int
+    required: true
+    label: "Number of replicas"
+    group: "General"
+    default: 1
+    min: 1
+    max: 10
+
+  - variable: ingress.enabled
+    type: boolean
+    required: true
+    label: "Create ingress?"
+    group: "General"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: ingress.hosts[0].host
+        type: string
+        required: true
+        label: Hostname
+      - variable: ingress.createTls
+        type: boolean
+        default: "false"
+        label: Create TLS?
+      - variable: ingress.hosts[0].name
+        type: string
+        required: true
+        default: "default"
+        label: TLS secret name
+
