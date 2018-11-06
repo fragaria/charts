@@ -1,7 +1,5 @@
 categories:
 - general
-labels:
-  io.rancher.certified: experimental
 questions:
   - variable: borisAdminEmail
     type: string
