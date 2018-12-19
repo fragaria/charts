@@ -1,0 +1,57 @@
+{{- if .Values.backup.enabled -}}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ template "fullname" . }}-backup-job
+  labels:
+    app: {{ template "fullname" . }}
+    jobname: backup
+    # The "app.kubernetes.io/managed-by" label is used to track which tool deployed a given chart.
+    # It is useful for admins who want to see what releases a particular tool
+    # is responsible for.
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+    # The "app.kubernetes.io/instance" convention makes it easy to tie a release to all of the
+    # Kubernetes resources that were created as part of that release.
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    # This makes it easy to audit chart usage.
+    helm.sh/chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+spec:
+  schedule: {{ required ".Values.backup.schedule is required!" .Values.backup.schedule | quote }}
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+            - name: {{ .Values.image.pullSecretName }}
+          containers:
+          - name:  pgdump
+            image: jbergknoff/postgresql-client
+            command:
+              - 'sh'
+              - '-c'
+              - 'pg_dump --dbname=postgresql://$DB_USER:$DB_PASS@$DB_HOST:5432/$DB_NAME --clean --no-owner | gzip > /pgdump/{{ .Release.Name }}-${DB_NAME}.sql.gz'
+            env:
+              - name: DB_NAME
+                value: {{ default "sentry" .Values.postgresDatabase | quote }}
+              - name: DB_HOST
+                value: {{ template "postgresql.fullname" . }}
+              - name: DB_USER
+                value: {{ default "sentry" .Values.postgresUser | quote }}
+              - name: DB_PASS
+                valueFrom:
+                  secretKeyRef:
+                  {{- if .Values.postgresql.existingSecret }}
+                    name: {{ .Values.postgresql.existingSecret }}
+                  {{- else }}
+                    name: {{ template "postgresql.fullname" . }}
+                  {{- end }}
+                    key: postgres-password
+            volumeMounts:
+              - name: pgdump
+                mountPath: /pgdump
+          volumes:
+            - name: pgdump
+              persistentVolumeClaim:
+                claimName: {{ required ".Values.backup.pvcName is required!" .Values.backup.pvcName | quote }}
+          restartPolicy: OnFailure
+{{- end -}}

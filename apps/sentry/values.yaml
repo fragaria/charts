@@ -115,6 +115,11 @@ persistence:
   # https://docs.sentry.io/server/filestore/
   filestore_dir: /var/lib/sentry/files
 
+backup:
+  enabled: false
+  schedule: "0 4 * * *"
+  #pvcName: somepvc
+
 ## Configure ingress resource that allow you to access the
 ## Sentry installation. Set up the URL
 ## ref: http://kubernetes.io/docs/user-guide/ingress/

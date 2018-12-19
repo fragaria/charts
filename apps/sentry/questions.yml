@@ -183,3 +183,22 @@ questions:
     group: Redis settings
     label: Limits memory
     default: 1024Mi
+
+  - variable: backup.enabled
+    type: boolean
+    required: true
+    label: "Enabled?"
+    group: "Database backups"
+    default: "false"
+    show_subquestion_if: true
+    subquestions:
+      - variable: backup.schedule
+        type: string
+        required: true
+        default: "0 4 * * *"
+        label: "CRON schedule expression"
+      - variable: backup.pvcName
+        type: string
+        required: true
+        label: "Existing PVC name"
+        description: "Backups only support existing PVCs."
