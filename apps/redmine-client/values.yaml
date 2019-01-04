@@ -8,7 +8,7 @@ replicaCount: 1
 
 image:
   repository: docker-registry.f-app.it/redmine-client
-  tag: 0.2.3
+  tag: 0.2.4
   pullPolicy: IfNotPresent
   pullSecretName: fragaria-private
 
