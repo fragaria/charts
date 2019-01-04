@@ -3,7 +3,7 @@ entries:
   adventura:
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.946164661+01:00
+    created: 2019-01-04T15:52:40.683239245+01:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: 5788d410850dacb3ffc71cdf0184f2ec55521e3f57087cb94cef6340f8732bed
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -13,7 +13,7 @@ entries:
     version: 0.3.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.942975028+01:00
+    created: 2019-01-04T15:52:40.680145977+01:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eccc679b4682727e012658477b175c7631399827d0d6ecb31b380ebd5cf4b98c
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -23,7 +23,7 @@ entries:
     version: 0.2.16
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.940143853+01:00
+    created: 2019-01-04T15:52:40.677289527+01:00
     description: A Helm chart to deploy full Adventura.cz stack for Kubernetes
     digest: eb4eb6dd476b5cc756978f9195d06616a783cf2c3f30503f79ff4ce15c2f8484
     icon: https://www.adventura.cz/static/web/adv/images/icon-globeheart@2x.52cc531e3b8b.png
@@ -34,7 +34,7 @@ entries:
   boris:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: 2019-01-03T15:44:45.968793215+01:00
+    created: 2019-01-04T15:52:40.710616493+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: de7f4964a750ea9a3bb9bf1faf461d77096c8d7b020505f76db9129a35359a64
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -44,7 +44,7 @@ entries:
     version: 1.0.0
   - apiVersion: v1
     appVersion: 0.4.7
-    created: 2019-01-03T15:44:45.967648738+01:00
+    created: 2019-01-04T15:52:40.709616327+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: de2ec52079ab59a23f8d1090fd522a8dd55ed330ee3263dff610979cf8183e7b
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -54,7 +54,7 @@ entries:
     version: 0.6.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.966608546+01:00
+    created: 2019-01-04T15:52:40.708595197+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 00195eb742ee3b6a120e2eade49c2abfaba79f964088acd5cb97d820070d8bf5
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -64,7 +64,7 @@ entries:
     version: 0.6.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.965610082+01:00
+    created: 2019-01-04T15:52:40.707554654+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: de040dffd22e0d36112af6d00ac661c266f97dc51ca110180de874c6849cbfe9
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -74,7 +74,7 @@ entries:
     version: 0.6.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.964594455+01:00
+    created: 2019-01-04T15:52:40.706516268+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 8800ebf30f646c7077a102c4c35dada063562fb510634e954c760a5fef6d2503
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -84,7 +84,7 @@ entries:
     version: 0.6.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.963524411+01:00
+    created: 2019-01-04T15:52:40.705545425+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: b928c89e6071207442f37589e686c84fe77e86b3042a1f07685598b753d75587
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -94,7 +94,7 @@ entries:
     version: 0.6.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.962039488+01:00
+    created: 2019-01-04T15:52:40.70367282+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: aa9a510442162a777881ce7f42734edd69196416d10951c32cb2807a27bf7de2
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -104,7 +104,7 @@ entries:
     version: 0.5.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.960087455+01:00
+    created: 2019-01-04T15:52:40.697018366+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: dbffef0eefed9061c17c2c1013ad9dfe93163bf6937252a52b99fd1042675098
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -114,7 +114,7 @@ entries:
     version: 0.5.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.958775035+01:00
+    created: 2019-01-04T15:52:40.695733731+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 8f9225188560753c22e9aaec0ef077c58ec0abeb96e2bccd1b924cd225745d6d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -124,7 +124,7 @@ entries:
     version: 0.5.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.957624274+01:00
+    created: 2019-01-04T15:52:40.694588749+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: aad97b6591a53dcc08d98b7954ed1b063a9c1e6209e0208d01d49684d5462aec
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -134,7 +134,7 @@ entries:
     version: 0.5.0
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.95438024+01:00
+    created: 2019-01-04T15:52:40.691289993+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: effca19126df566ed9f9273233d1dfc1eb9aa6a2cec98a5486d84bc707cfe1f7
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -144,7 +144,7 @@ entries:
     version: 0.4.15
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.953107923+01:00
+    created: 2019-01-04T15:52:40.689483273+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 75551609d731d57205aac341be8f374b3de813f170320dbab20844257a4f3bea
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -154,7 +154,7 @@ entries:
     version: 0.4.14
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.951990092+01:00
+    created: 2019-01-04T15:52:40.688377041+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 85fafe194d7b030411e3219df550fe35dcc1165ee1bce196fdef1a1d058be995
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -164,7 +164,7 @@ entries:
     version: 0.4.13
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.950993094+01:00
+    created: 2019-01-04T15:52:40.687322156+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 3126c121ca8bc2d9d7938dacf9278308ad4e663a0df91bf918886ac8ed6db5c5
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -174,7 +174,7 @@ entries:
     version: 0.4.12
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.949941478+01:00
+    created: 2019-01-04T15:52:40.686244086+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 7e96de76c5e810ed743df87d695e43b25bca18cd289885775d9d03f5c9fc4e77
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -184,7 +184,7 @@ entries:
     version: 0.4.11
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.948837989+01:00
+    created: 2019-01-04T15:52:40.684315729+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a9650a60d76fb8517ea05ef459f8289a7430438efaf9b37d45e3b799ebdb8190
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -194,7 +194,7 @@ entries:
     version: 0.4.10
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.956487753+01:00
+    created: 2019-01-04T15:52:40.693410651+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: 50bb1b64db5b3352b3878105b681189067d77f77c6988806da56630266939dd9
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -204,7 +204,7 @@ entries:
     version: 0.4.9
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.955427172+01:00
+    created: 2019-01-04T15:52:40.692364394+01:00
     description: A Helm chart for Kubernetes to deploy BorIS installation
     digest: a80910444ca39165db30210bdda00ba558afd23bec1a49179431a6b735f4199d
     icon: https://bor-is.cz/assets/img/boris-logo-70x202-black.png
@@ -215,7 +215,7 @@ entries:
   foster:
   - apiVersion: v1
     appVersion: 3.4.4
-    created: 2019-01-03T15:44:45.979672626+01:00
+    created: 2019-01-04T15:52:40.730439362+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 475d352a1a05ff12092d73ec4910e40e6f293257fb06be8dfba1dbd1c7359144
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -225,7 +225,7 @@ entries:
     version: 0.1.19
   - apiVersion: v1
     appVersion: 3.4.4
-    created: 2019-01-03T15:44:45.978833732+01:00
+    created: 2019-01-04T15:52:40.729393339+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 5e65153eac52b110ea99468cc5b2782621455603b7ada6ab3e5d8a57015312f8
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -235,7 +235,7 @@ entries:
     version: 0.1.18
   - apiVersion: v1
     appVersion: 3.4.2
-    created: 2019-01-03T15:44:45.977700798+01:00
+    created: 2019-01-04T15:52:40.728314867+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 39daaec818a81c706ba1ab2a954916e2f4a96199a6bf055573396a304ec84745
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -245,7 +245,7 @@ entries:
     version: 0.1.17
   - apiVersion: v1
     appVersion: 0.1.5
-    created: 2019-01-03T15:44:45.975795275+01:00
+    created: 2019-01-04T15:52:40.727285926+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: a33446293749210c76571d76068690ab1acb1aa1d8c29fa7a937187f2dd54814
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -255,7 +255,7 @@ entries:
     version: 0.1.16
   - apiVersion: v1
     appVersion: 0.1.4
-    created: 2019-01-03T15:44:45.974831521+01:00
+    created: 2019-01-04T15:52:40.716660806+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 9c02f588d36d1d792b0ec1f766ad04a1f11dfd00f26890550532ac509158cedb
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -265,7 +265,7 @@ entries:
     version: 0.1.15
   - apiVersion: v1
     appVersion: 0.1.4
-    created: 2019-01-03T15:44:45.973885638+01:00
+    created: 2019-01-04T15:52:40.715675919+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 374c11947389de63ade7e55c608dc22bd2d76a5d8f0aec13ac8f0d40d840f9be
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -275,7 +275,7 @@ entries:
     version: 0.1.14
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.972916635+01:00
+    created: 2019-01-04T15:52:40.714668364+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: f604a8f8b885e7d9230afd56982450060d5a37c10584a3c5108f6ef583621e5e
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -285,7 +285,7 @@ entries:
     version: 0.1.13
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.971898837+01:00
+    created: 2019-01-04T15:52:40.71365273+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 15a991e58be88274287a24663d37c9e67930c5a5d3d35b8fe40d83d77dce56e1
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -295,7 +295,7 @@ entries:
     version: 0.1.12
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.970860814+01:00
+    created: 2019-01-04T15:52:40.712640867+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: c365443850ef3a8e7a76d7f4828f3d0880ecf451188663f78d0cc7924601c516
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -305,7 +305,7 @@ entries:
     version: 0.1.11
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.969814292+01:00
+    created: 2019-01-04T15:52:40.711622196+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 095bd889a350a52061423a7d0a5034a7767e8fcbf04f0035e6bc144b589df99b
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -315,7 +315,7 @@ entries:
     version: 0.1.10
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.981533556+01:00
+    created: 2019-01-04T15:52:40.73241666+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: 00b38fa697413ec2462b67ba28ec0b116646d60dc247f5635e2c8f05b584f9d3
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -325,7 +325,7 @@ entries:
     version: 0.1.9
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.980619543+01:00
+    created: 2019-01-04T15:52:40.731444903+01:00
     description: A Helm chart for Kubernetes to deploy Foster installation
     digest: c5229c72c0685f6e8859a417954d0cba42a8c3b4b4576eea247de4fe16813f61
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -336,7 +336,7 @@ entries:
   foster-centralpoint:
   - apiVersion: v1
     appVersion: 0.1.3
-    created: 2019-01-03T15:44:45.987036861+01:00
+    created: 2019-01-04T15:52:40.738066993+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 1732d0b5e6829643ee5f6373da716ba08ed1172d32bba447d2510c1f1e5f6f18
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -346,7 +346,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.986087843+01:00
+    created: 2019-01-04T15:52:40.737091948+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: fc5ad52579db299a292b7e310ea70a648a29e28fdcb39aff9b435fba0c214d71
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -356,7 +356,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.985154508+01:00
+    created: 2019-01-04T15:52:40.736108403+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: e2e9fc13a457faf33e8374eb83700b2f6fd51726b13dae968f15d60ef32d56bf
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -366,7 +366,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.984212478+01:00
+    created: 2019-01-04T15:52:40.735155483+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 4e371def847468a1111cca4c7dd97e0a0b899aae2409dcb05ac1b826b46ca729
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -376,7 +376,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.983265504+01:00
+    created: 2019-01-04T15:52:40.734182603+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 560a9425f4ef4c7fe4ee15a91a3ddd8a6d332d2f0850ce2a506145d7ce523eab
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -386,7 +386,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "1.0"
-    created: 2019-01-03T15:44:45.98240006+01:00
+    created: 2019-01-04T15:52:40.733298969+01:00
     description: A Helm chart for Kubernetes to deploy Foster central point installation
     digest: 15fe69a05b94c1492e32302e380fd315ba12e28682df8180639ba4f11484d852
     icon: https://svpfrydlant.foster.f-app.it/static/images/foster_logo_resize.61f314ae8dd3.png
@@ -397,7 +397,7 @@ entries:
   postfix-relay:
   - apiVersion: v1
     appVersion: 0.1.1
-    created: 2019-01-03T15:44:45.988079845+01:00
+    created: 2019-01-04T15:52:40.739211907+01:00
     description: Simple postfix-based SMTP relay that runs in a Docker container.
     digest: ad2e3bc0c7f73a21f7a96fc6e25de5221e622c2945fad8795c479e445885fdf0
     name: postfix-relay
@@ -406,7 +406,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: 0.1.1
-    created: 2019-01-03T15:44:45.987754903+01:00
+    created: 2019-01-04T15:52:40.738848022+01:00
     description: Simple postfix-based SMTP relay that runs in a Docker container.
     digest: 47528b0b374de6c07ba1df0a3180fa3535387d05a6a37f317ccee6e84d9bae60
     name: postfix-relay
@@ -415,7 +415,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 0.1.1
-    created: 2019-01-03T15:44:45.987372319+01:00
+    created: 2019-01-04T15:52:40.738488993+01:00
     description: Simple postfix-based SMTP relay that runs in a Docker container.
     digest: 6acb92491b7f82491798dbc6e73abc2c2e28580c3656322d9a1aa875bacabf61
     name: postfix-relay
@@ -424,8 +424,17 @@ entries:
     version: 0.1.0
   redmine-client:
   - apiVersion: v1
+    appVersion: 0.2.4
+    created: 2019-01-04T15:52:40.74295563+01:00
+    description: Redmine client simplifes day-to-day time logging.
+    digest: 6373f7e4d1e83df5e273535b9a71fca53046fc86e7ab34e91f448ad6d2070525
+    name: redmine-client
+    urls:
+    - https://fragaria.github.io/charts/redmine-client-0.2.4.tgz
+    version: 0.2.4
+  - apiVersion: v1
     appVersion: 0.2.3
-    created: 2019-01-03T15:44:45.991031773+01:00
+    created: 2019-01-04T15:52:40.742733538+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: c66acd483260b11593aa5522c1a468a4704080312b273cd1b7a141797d3b0c86
     name: redmine-client
@@ -434,7 +443,7 @@ entries:
     version: 0.2.3
   - apiVersion: v1
     appVersion: 0.2.2
-    created: 2019-01-03T15:44:45.990601175+01:00
+    created: 2019-01-04T15:52:40.742360193+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: 7e7c4e655d8d10ab11f2213db76a5b0778d3a19850c8516d9fc39d95faca0b9f
     name: redmine-client
@@ -443,7 +452,7 @@ entries:
     version: 0.2.2
   - apiVersion: v1
     appVersion: 0.2.1
-    created: 2019-01-03T15:44:45.989815305+01:00
+    created: 2019-01-04T15:52:40.742000764+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: dff863d44eb9a769608dc0e650041560358cb18d1d2ef2d6a8346d9be7080597
     name: redmine-client
@@ -452,7 +461,7 @@ entries:
     version: 0.2.1
   - apiVersion: v1
     appVersion: 0.2.0
-    created: 2019-01-03T15:44:45.989425019+01:00
+    created: 2019-01-04T15:52:40.741493395+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: 39347f30710e8d5de63724b59a49405c00f8af941b2b998c49fd2d896b5ee7f7
     name: redmine-client
@@ -461,7 +470,7 @@ entries:
     version: 0.2.0
   - apiVersion: v1
     appVersion: 0.2.1
-    created: 2019-01-03T15:44:45.989058042+01:00
+    created: 2019-01-04T15:52:40.740760197+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: 58bc90fb7d9c01ba597c93ed9194586fbeaf91907a01fbec890c7ab2e08694ae
     name: redmine-client
@@ -470,7 +479,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: 0.1.0
-    created: 2019-01-03T15:44:45.988767684+01:00
+    created: 2019-01-04T15:52:40.740187206+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: 41a741732bd3bd1b2c9610d4b0df0376eda51c3ec3545b6772ab27949af69ce8
     name: redmine-client
@@ -479,7 +488,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: 0.1.0
-    created: 2019-01-03T15:44:45.988390493+01:00
+    created: 2019-01-04T15:52:40.739575763+01:00
     description: Redmine client simplifes day-to-day time logging.
     digest: b0b93c70c387fca6cc2890e9d6fd183e84e3de4fd313ac1e2788f0f48eef51a5
     name: redmine-client
@@ -489,7 +498,7 @@ entries:
   sentry:
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.020289996+01:00
+    created: 2019-01-04T15:52:40.763448433+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: 5dc7bda50314c69fdfdd2bbf2faf06832a7afe4a7a69bda351a5724d7c57c644
     home: https://sentry.io/
@@ -506,7 +515,7 @@ entries:
     version: 0.1.9
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.018575994+01:00
+    created: 2019-01-04T15:52:40.761522128+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: c9f6102bb438aa4594bd3378bc097e3df626271d2acc9d16aa04174b1cdc1f63
     home: https://sentry.io/
@@ -523,7 +532,7 @@ entries:
     version: 0.1.8
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.016742669+01:00
+    created: 2019-01-04T15:52:40.759610535+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: c6b7390e2bca4f34ce040c974647de3c608c2aa15474e0d778b3dfb587cc4627
     home: https://sentry.io/
@@ -540,7 +549,7 @@ entries:
     version: 0.1.7
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.01477692+01:00
+    created: 2019-01-04T15:52:40.757740674+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: ee9caff090a76be87dbb5a9d518a1964aafbcc367057a20106b169b09687e7d6
     home: https://sentry.io/
@@ -557,7 +566,7 @@ entries:
     version: 0.1.6
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.011500548+01:00
+    created: 2019-01-04T15:52:40.755804445+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: 45523301ef53031f5ed460803d2ecf18aa915920ed652a776b9940b7a54b94e2
     home: https://sentry.io/
@@ -574,7 +583,7 @@ entries:
     version: 0.1.5
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.00963827+01:00
+    created: 2019-01-04T15:52:40.752987181+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: 12ba8b2de1ba2af0e38b927a1b1ad2903dfb22dc49bdf79bd48930141ed21661
     home: https://sentry.io/
@@ -591,7 +600,7 @@ entries:
     version: 0.1.4
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.007835129+01:00
+    created: 2019-01-04T15:52:40.750395323+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: e3cd7351887670d168bb19fe2775d862e1286657fc947a096b7663be0f3cec09
     home: https://sentry.io/
@@ -608,7 +617,7 @@ entries:
     version: 0.1.3
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.005924284+01:00
+    created: 2019-01-04T15:52:40.7484958+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: 3f09566962745420a8586245fb594ee441b5b1abf5ba035e7235a2d3666c12ab
     home: https://sentry.io/
@@ -625,7 +634,7 @@ entries:
     version: 0.1.2
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.003830445+01:00
+    created: 2019-01-04T15:52:40.746657635+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: cd8aa57b543a378147949fec22399aceea4104b04e2d79b32bebc24e6c0f04d1
     home: https://sentry.io/
@@ -642,7 +651,7 @@ entries:
     version: 0.1.1
   - apiVersion: v1
     appVersion: "9"
-    created: 2019-01-03T15:44:46.001993738+01:00
+    created: 2019-01-04T15:52:40.744850465+01:00
     description: Sentry is a cross-platform crash reporting and aggregation platform.
     digest: 91ac49c8cc7dc1224acf5d68c2e8e751b7d0118f70acdede085c186ba89875f9
     home: https://sentry.io/
@@ -657,4 +666,4 @@ entries:
     urls:
     - https://fragaria.github.io/charts/sentry-0.1.0.tgz
     version: 0.1.0
-generated: 2019-01-03T15:44:45.93721226+01:00
+generated: 2019-01-04T15:52:40.674212721+01:00
