@@ -23,8 +23,6 @@ metadata:
 spec:
   template:
     spec:
-      imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
       containers:
         - name: main
           image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
@@ -38,7 +36,7 @@ spec:
             - name: FOSTER_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "postgresql.fullname" . }}
+                  name: {{ template "foster.fullname" . }}
                   key: postgres-password
             - name: FOSTER_SECRET_KEY
               valueFrom:

@@ -55,12 +55,6 @@ questions:
     required: false
     label: "Sentry DSN"
     group: "General"
-  - variable: image.pullSecretName
-    type: string
-    required: true
-    label: "Name of secret for pulling the images"
-    default: "fragaria-private"
-    group: General
   - variable: nameOverride
     type: string
     required: false
@@ -146,54 +140,24 @@ questions:
         default: "default"
         label: TLS secret name
 
-  - variable: fosterBackup.enabled
-    type: boolean
-    required: true
-    label: "Enabled?"
-    group: "Database backups"
-    default: "false"
-    show_subquestion_if: true
-    subquestions:
-      - variable: fosterBackup.schedule
-        type: string
-        required: true
-        default: "0 4 * * *"
-        label: "CRON schedule expression"
-      - variable: fosterBackup.pvcName
-        type: string
-        required: true
-        label: "Existing PVC name"
-        description: "Backups only support existing PVCs."
-
-  - variable: postgresql.persistence.enabled
-    type: boolean
-    label: PostgreSQL persistence enabled
+  - variable: postgres.host
+    type: string
+    label: Host
     required: true
     group: PostgreSQL settings
-    show_subquestion_if: true
-    subquestions:
-      - variable: postgresql.persistence.size
-        default: "4Gi"
-        label: Volume size
-        type: string
-      - variable: postgresql.persistence.storageClass
-        default: ""
-        description: "If undefined or null, uses the default StorageClass. Default to null"
-        type: storageclass
-        label: StorageClass to use for persisting the data
-  - variable: postgresql.postgresUser
+  - variable: postgres.user
     type: string
     label: User name
     default: "foster"
     required: true
     group: PostgreSQL settings
-  - variable: postgresql.postgresDatabase
+  - variable: postgres.database
     type: string
     label: Database name
     default: "foster"
     required: true
     group: PostgreSQL settings
-  - variable: postgresql.postgresPassword
+  - variable: postgres.password
     type: string
     label: User password
     description: "Please choose a strong password."

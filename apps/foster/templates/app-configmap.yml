@@ -14,9 +14,9 @@ data:
   FOSTER_LANG: {{ .Values.fosterLang | quote }}
   FOSTER_TRANSFERS_HOST: {{ .Values.fosterTransfersHost | quote }}
   FOSTER_TRANSFERS_CODE: {{ .Values.fosterTransfersCode | quote }}
-  FOSTER_POSTGRES_HOST: {{ template "postgresql.fullname" . }}
-  FOSTER_POSTGRES_DBNAME: {{ required ".Values.postgresql.postgresDatabase is required!" .Values.postgresql.postgresDatabase | quote }}
-  FOSTER_POSTGRES_USER: {{ required ".Values.postgresql.postgresUser is required!" .Values.postgresql.postgresUser | quote }}
+  FOSTER_POSTGRES_HOST: {{ required ".Values.postgres.host is required!" .Values.postgres.host | quote }}
+  FOSTER_POSTGRES_DBNAME: {{ required ".Values.postgres.database is required!" .Values.postgres.database | quote }}
+  FOSTER_POSTGRES_USER: {{ required ".Values.postgres.user is required!" .Values.postgres.user | quote }}
   FOSTER_WORKERS: {{ required ".Values.fosterWorkers is required!" .Values.fosterWorkers | quote }}
   FOSTER_SENTRY_DSN: {{ .Values.fosterSentry.dsn | quote }}
   FOSTER_SECURE_COOKIE: {{ if and .Values.ingress.enabled  .Values.ingress.createTls -}}"1"{{- else -}}"0"{{- end }}

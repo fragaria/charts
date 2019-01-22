@@ -5,10 +5,9 @@
 replicaCount: 1
 
 image:
-  repository: docker-registry.f-app.it/foster
+  repository: gcr.io/gke-testing-228712/foster
   tag: 3.4.4
   pullPolicy: IfNotPresent
-  pullSecretName: fragaria-private
 
 nameOverride: ""
 fullnameOverride: ""
@@ -20,8 +19,7 @@ service:
 ingress:
   enabled: false
   annotations:
-    kubernetes.io/ingress.class: nginx
-    kubernetes.io/tls-acme: "true"
+    kubernetes.io/ingress.class: traefik
   path: /
   hosts: []
     # - name: default
@@ -62,9 +60,6 @@ fosterCreateSuperUser: false
 fosterSuperUserUsername: "admin"
 fosterSuperUserEmail: "admin@fragaria.cz"
 fosterSuperUserPassword: ""
-fosterBackup:
-  enabled: false
-  schedule: "0 4 * * *"
 fosterSentry:
   dsn: ""
 
@@ -77,7 +72,7 @@ fosterMediaProxy:
 
 fosterPersistence:
   enabled: false
-  accessMode: ReadWriteOnce
+  accessMode: ReadWriteMany
   size: 4Gi
   annotations: {}
   ## If defined, storageClassName: <storageClass>
@@ -90,38 +85,8 @@ fosterPersistence:
 
 fosterMountMigrationVolumes: false
 
-postgresql:
-  postgresDatabase: foster
-  postgresPassword: foster
-  postgresUser: foster
-
-  ## Persist data to a persistent volume
-  persistence:
-    enabled: true
-    ## database data Persistent Volume Storage Class
-    ## If defined, storageClassName: <storageClass>
-    ## If set to "-", storageClassName: "", which disables dynamic provisioning
-    ## If undefined (the default) or set to null, no storageClassName spec is
-    ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
-    ##   GKE, AWS & OpenStack)
-    ##
-    # storageClass: "-"
-    accessMode: ReadWriteOnce
-    size: 4Gi
-    annotations: {}
-    resourcePolicy: ""
-
-  resources:
-    requests:
-      cpu: 100m
-      memory: 128Mi
-
-    limits:
-      cpu: 1000m
-      memory: 256Mi
-
-  probes:
-    liveness:
-      initialDelay: 120
-    readiness:
-      initialDelay: 20
+postgres:
+  # host:
+  database: foster
+  user: foster
+  password: foster

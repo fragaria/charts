@@ -23,19 +23,10 @@ metadata:
 spec:
   template:
     spec:
-      imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
-      initContainers:
-        # Wait for database to be ready before attempting the migration.
-        - name: {{ printf "%s-wait-for-database" .Chart.Name }}
-          image: "groundnuty/k8s-wait-for:v1.1"
-          imagePullPolicy: Always
-          command: ["sh", '-c', 'wait_for.sh pod -lapp={{ include "postgresql.name" . }} && sleep 10']
       containers:
         - name: main
           image: "{{ required ".Values.image.repository is required!" .Values.image.repository }}:{{ required ".Values.image.tag is required!" .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
-          # Sleep for few seconds so that PostgreSQL intializes
           command: ['/foster/bin/db-init.sh']
           envFrom:
             - configMapRef:
@@ -44,7 +35,7 @@ spec:
             - name: FOSTER_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "postgresql.fullname" . }}
+                  name: {{ template "foster.fullname" . }}
                   key: postgres-password
             - name: FOSTER_SECRET_KEY
               valueFrom:

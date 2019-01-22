@@ -1,6 +1,1 @@
 dependencies:
-- name: postgresql
-  repository: "file://../../dbs/postgresql"
-  version: ">= 0.0.1"
-  tags:
-    - db

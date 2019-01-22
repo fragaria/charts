@@ -19,8 +19,6 @@ spec:
         app: {{ include "foster.name" . }}
         release: {{ .Release.Name }}
     spec:
-      imagePullSecrets:
-        - name: {{ .Values.image.pullSecretName }}
       containers:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
@@ -32,7 +30,7 @@ spec:
             - name: FOSTER_POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: {{ template "postgresql.fullname" . }}
+                  name: {{ template "foster.fullname" . }}
                   key: postgres-password
             - name: FOSTER_SECRET_KEY
               valueFrom:

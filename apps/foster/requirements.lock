@@ -1,6 +1,0 @@
-dependencies:
-- name: postgresql
-  repository: file://../../dbs/postgresql
-  version: 0.1.0
-digest: sha256:766ee5e7d01f8ceced610a035497f90c3205e06d356e9f7506c0a42e84f39991
-generated: 2018-10-16T15:50:17.77362381+02:00
