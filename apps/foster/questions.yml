@@ -55,6 +55,18 @@ questions:
     required: false
     label: "Sentry DSN"
     group: "General"
+  - variable: image.repository
+    type: string
+    required: true
+    label: "Name of repository image"
+    default: "docker-registry.f-app.it/foster"
+    group: General
+  - variable: image.tag
+    type: string
+    required: true
+    label: "Name of image tag"
+    default: "3.4.5"
+    group: General
   - variable: image.pullSecretName
     type: string
     required: true
