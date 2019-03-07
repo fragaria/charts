@@ -6,7 +6,7 @@ replicaCount: 1
 
 image:
   repository: docker-registry.f-app.it/foster
-  tag: 3.4.5
+  tag: 3.4.6
   pullPolicy: IfNotPresent
   pullSecretName: fragaria-private
 
